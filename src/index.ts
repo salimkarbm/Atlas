@@ -1,14 +1,30 @@
-import 'reflect-metadata';
-import dotenv from 'dotenv';
+import "@app/config/load-env";
+import "reflect-metadata";
 
-import { createServer } from './app/server';
+import { bootstrap } from "@app/bootstrap/bootstrap";
+import { logger } from "@infra/logging/logger";
 
-dotenv.config();
 
-const app = createServer();
+async function main() {
+  const server = await bootstrap();
 
-const port = Number(process.env.PORT ?? 3000);
+  const shutdown = async (signal: string) => {
+    logger.info({ signal }, "Shutting down");
 
-app.listen(port, () => {
-  console.log(`🚀 Atlas API listening on port ${port}`);
+    server.close(() => {
+      logger.info("HTTP server stopped");
+
+      process.exit(0);
+    });
+  };
+
+  process.on("SIGINT", () => shutdown("SIGINT"));
+
+  process.on("SIGTERM", () => shutdown("SIGTERM"));
+}
+
+main().catch((error) => {
+  logger.fatal(error, "Application failed to start");
+
+  process.exit(1);
 });
