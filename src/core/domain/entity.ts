@@ -1,28 +1,25 @@
 import { UniqueEntityId } from "./unique-entity-id";
 
-interface EntityProps {}
+export abstract class Entity<TProps> {
+  protected readonly _id: UniqueEntityId;
 
-export abstract class Entity<Props extends EntityProps> {
-    protected readonly _id: UniqueEntityId;
+  protected readonly props: TProps;
 
-    protected props: Props;
+  protected constructor(
+    props: TProps,
+    id?: UniqueEntityId,
+  ) {
+    this._id = id ?? new UniqueEntityId();
+    this.props = props;
+  }
 
-    protected constructor(
-        props: Props,
-        id?: UniqueEntityId,
-    ) {
-        this._id = id ?? new UniqueEntityId();
+  public get id(): UniqueEntityId {
+    return this._id;
+  }
 
-        this.props = props;
-    }
+  public equals(object?: Entity<TProps>): boolean {
+    if (!object) return false;
 
-    get id() {
-        return this._id;
-    }
-
-    equals(entity?: Entity<Props>) {
-        if (!entity) return false;
-
-        return this.id.equals(entity.id);
-    }
+    return this.id.equals(object.id);
+  }
 }

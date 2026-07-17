@@ -1,17 +1,23 @@
-import { v7 as uuid } from "uuid";
+import { v7 as uuidv7, validate as isUuid } from "uuid";
 
 export class UniqueEntityId {
-    private readonly value: string;
+  public readonly value: string;
 
-    constructor(id?: string) {
-        this.value = id ?? uuid();
+  constructor(value?: string) {
+    const id = value ?? uuidv7();
+
+    if (!isUuid(id)) {
+      throw new Error("Invalid entity id.");
     }
 
-    toString(): string {
-        return this.value;
-    }
+    this.value = id;
+  }
 
-    equals(other: UniqueEntityId): boolean {
-        return this.value === other.value;
-    }
+  public equals(other?: UniqueEntityId): boolean {
+    return !!other && this.value === other.value;
+  }
+
+  public toString(): string {
+    return this.value;
+  }
 }
