@@ -1,13 +1,13 @@
-import { createServer } from "@app/server";
-import { config } from "@app/config";
-import { logger } from "@infra/logging/logger";
+import { createServer } from '@app/server';
+import { config } from '@app/config';
+import { logger } from '@infra/logging/logger';
 
-import { ApplicationKernel } from "./application-kernel";
+import { ApplicationKernel } from './application-kernel';
 
-export async function bootstrap() {
+export function bootstrap() {
   const kernel = new ApplicationKernel();
 
-  await kernel.initialize();
+  kernel.initialize();
 
   const app = createServer();
 
@@ -16,7 +16,7 @@ export async function bootstrap() {
       {
         port: config.app.port,
       },
-      "Atlas API started",
+      'Atlas API started',
     );
   });
 

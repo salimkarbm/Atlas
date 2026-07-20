@@ -1,7 +1,3 @@
-import { DomainError } from "./domain.error";
+import { DomainError } from './domain.error';
 
-export class ValidationError extends DomainError {
-  constructor(message: string) {
-    super(message);
-  }
-}
+export class ValidationError extends DomainError {}

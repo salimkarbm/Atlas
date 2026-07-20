@@ -1,7 +1,3 @@
-import { DomainError } from "./domain.error";
+import { DomainError } from './domain.error';
 
-export class AuthorizationError extends DomainError {
-  constructor(message: string) {
-    super(message);
-  }
-}
+export class AuthorizationError extends DomainError {}

@@ -1,4 +1,4 @@
-import { isDeepStrictEqual } from "node:util";
+import { isDeepStrictEqual } from 'node:util';
 
 export abstract class ValueObject<T> {
   protected readonly props: Readonly<T>;

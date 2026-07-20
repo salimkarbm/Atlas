@@ -1,4 +1,4 @@
-import { v7 as uuidv7, validate as isUuid } from "uuid";
+import { v7 as uuidv7, validate as isUuid } from 'uuid';
 
 export class UniqueEntityId {
   public readonly value: string;
@@ -7,7 +7,7 @@ export class UniqueEntityId {
     const id = value ?? uuidv7();
 
     if (!isUuid(id)) {
-      throw new Error("Invalid entity id.");
+      throw new Error('Invalid entity id.');
     }
 
     this.value = id;

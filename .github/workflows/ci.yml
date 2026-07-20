@@ -20,10 +20,17 @@ jobs:
 
       - run: npm ci
 
-      - run: npm run typecheck
+      - name: Check Architecture
+        run: npm run depcheck
 
-      - run: npm run lint
+      - name: Type check
+        run: npm run typecheck
 
-      - run: npm test
+      - name: Lint
+        run: npm run lint
 
-      - run: npm run build
+      - name: Test
+        run: npm test
+
+      - name: Build
+        run: npm run build

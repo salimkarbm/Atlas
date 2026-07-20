@@ -1,31 +1,38 @@
-import "@app/config/load-env";
-import "reflect-metadata";
+import '@app/config/load-env';
+import 'reflect-metadata';
 
-import { bootstrap } from "@app/kernel/bootstrap";
-import { logger } from "@infra/logging/logger";
+import { bootstrap } from '@app/kernel/bootstrap';
+import { logger } from '@infra/logging/logger';
 
+function main(): void {
+  try {
+    const { kernel, server } = bootstrap();
 
-async function main() {
-  const { kernel, server } = await bootstrap();
+    const shutdown = async (signal: string): Promise<void> => {
+      logger.info({ signal }, 'Shutting down');
 
-  async function shutdown(signal: string) {
-    logger.info({ signal }, "Shutting down");
+      await new Promise<void>((resolve) => {
+        server.close(() => {
+          resolve();
+        });
+      });
 
-    server.close(async () => {
       await kernel.shutdown();
 
-      logger.info("Shutdown complete");
-
+      logger.info('Shutdown complete');
       process.exit(0);
-    });
-  }
+    };
 
-  process.on("SIGINT", () => shutdown("SIGINT"));
-  process.on("SIGTERM", () => shutdown("SIGTERM"));
+    process.on('SIGINT', () => {
+      void shutdown('SIGINT');
+    });
+    process.on('SIGTERM', () => {
+      void shutdown('SIGTERM');
+    });
+  } catch (error: unknown) {
+    logger.fatal(error as Error, 'Application startup failed');
+    process.exit(1);
+  }
 }
 
-main().catch((error) => {
-  logger.fatal(error, "Application startup failed");
-
-  process.exit(1);
-});
+main();

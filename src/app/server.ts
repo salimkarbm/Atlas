@@ -1,15 +1,15 @@
-import compression from "compression";
-import cors from "cors";
-import express from "express";
-import helmet from "helmet";
+import compression from 'compression';
+import cors from 'cors';
+import express from 'express';
+import helmet from 'helmet';
 
-import { requestLogger } from "@infra/logging/request-logger";
-import { healthRouter } from "./routes/health.route";
+import { requestLogger } from '@infra/logging/request-logger';
+import { healthRouter } from './routes/health.route';
 
 export function createServer() {
   const app = express();
 
-  app.disable("x-powered-by");
+  app.disable('x-powered-by');
 
   app.use(requestLogger);
 
@@ -23,7 +23,7 @@ export function createServer() {
 
   app.use(express.urlencoded({ extended: true }));
 
-  app.use("/health", healthRouter);
+  app.use('/health', healthRouter);
 
   return app;
 }

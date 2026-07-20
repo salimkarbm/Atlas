@@ -1,7 +1,7 @@
-import { env } from "./env";
+import { env } from './env';
 
 export const appConfig = {
-  name: "Atlas API",
+  name: 'Atlas API',
 
   env: env.NODE_ENV,
 

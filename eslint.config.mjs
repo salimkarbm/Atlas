@@ -9,6 +9,13 @@ export default tseslint.config(
       'dist/**',
       'coverage/**',
       'node_modules/**',
+      'dist/',
+      '.husky/',
+      '*.cjs',
+      '*.js',
+      '*.mjs',
+      'commitlint.config.*',
+      'eslint.config.mjs',
     ],
   },
 
