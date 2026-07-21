@@ -1,6 +1,7 @@
 import type { DataSourceOptions } from 'typeorm';
 
 import { config } from '@app/configuration/config';
+import { SnakeCaseNamingStrategy } from './naming';
 
 export function createDataSourceOptions(): DataSourceOptions {
   return Object.freeze({
@@ -15,5 +16,7 @@ export function createDataSourceOptions(): DataSourceOptions {
     database: config.database.database,
 
     ssl: config.database.ssl,
+
+    namingStrategy: new SnakeCaseNamingStrategy(),
   });
 }
