@@ -1,4 +1,4 @@
-import '@app/config/load-env';
+import '@app/config/internal/load-env';
 import 'reflect-metadata';
 
 import { bootstrap } from '@app/kernel/bootstrap';
