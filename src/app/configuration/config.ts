@@ -8,7 +8,7 @@ export function createConfig(source: NodeJS.ProcessEnv = process.env): Applicati
   const parsed = environmentSchema.safeParse(source);
 
   if (!parsed.success) {
-    throw new ConfigurationError(parsed.error.message);
+    throw new ConfigurationError(parsed.error);
   }
 
   return Object.freeze({

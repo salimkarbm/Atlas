@@ -1,8 +1,17 @@
 import { DomainError } from './domain.error';
 
+import { z } from 'zod';
+
 export class ConfigurationError extends DomainError {
-  constructor(message: string) {
-    super(message);
+  constructor(zodError: z.ZodError) {
+    const issues = zodError.issues
+      .map((i) => {
+        const path = i.path.join('.').toUpperCase() || 'CONFIG';
+        return `- ${path}: ${i.message}`;
+      })
+      .join('\n');
+
+    super(`Invalid application configuration:\n\n${issues}`);
     this.name = 'ConfigurationError';
   }
 }
