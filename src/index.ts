@@ -1,11 +1,14 @@
-import '@app/config/internal/load-env';
+import '@app/config/internal/environment-loader';
 import 'reflect-metadata';
 
 import { bootstrap } from '@app/kernel/bootstrap';
 import { logger } from '@infra/logging/logger';
+import { loadEnvironment } from '@app/config/internal/environment-loader';
 
 function main(): void {
   try {
+    loadEnvironment();
+
     const { kernel, server } = bootstrap();
 
     const shutdown = async (signal: string): Promise<void> => {

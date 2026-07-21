@@ -11,10 +11,10 @@ export function bootstrap() {
 
   const app = createServer();
 
-  const server = app.listen(config.app.port, () => {
+  const server = app.listen(config.application.port, () => {
     logger.info(
       {
-        port: config.app.port,
+        port: config.application.port,
       },
       'Atlas API started',
     );

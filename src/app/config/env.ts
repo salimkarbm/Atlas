@@ -7,9 +7,9 @@ const envSchema = z.object({
   // DB
   DB_HOST: z.string().default('localhost'),
   DB_PORT: z.coerce.number().default(5432),
-  DB_DATABASE: z.string(),
-  DB_USERNAME: z.string(),
-  DB_PASSWORD: z.string(),
+  // DB_DATABASE: z.string(),
+  // DB_USERNAME: z.string(),
+  // DB_PASSWORD: z.string(),
   DB_SSL: z.coerce.boolean().default(false),
 });
 
@@ -19,7 +19,7 @@ const parsed = envSchema.safeParse(process.env);
 
 if (!parsed.success) {
   console.error('❌ Invalid env:', z.prettifyError(parsed.error));
-  throw new Error('ENV_VALIDATION_FAILED');
+  process.exit(1);
 }
 
 export const env = parsed.data;
