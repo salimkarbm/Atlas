@@ -29,6 +29,9 @@ jobs:
       - name: Lint
         run: npm run lint
 
+      - name: Dependency Analysis
+        run: npm run knip
+
       - name: Test
         run: npm test
 

@@ -31,5 +31,16 @@ module.exports = {
         path: '^src/infrastructure',
       },
     },
+    {
+      name: 'no-circular-dependencies',
+
+      severity: 'error',
+
+      from: {},
+
+      to: {
+        circular: true,
+      },
+    },
   ],
 };

@@ -148,3 +148,9 @@ Architecture should enable delivery, not delay it.
 The purpose of this baseline is to provide a stable foundation that allows engineers to focus on solving business problems with confidence, consistency, and long-term maintainability.
 
 Every change should strengthen the architecture rather than increase its complexity.
+
+# Amendment History
+
+| Version | Date       | Summary                                    |
+| ------- | ---------- | ------------------------------------------ |
+| 1.0.0   | 2026-07-16 | Initial architecture baseline established. |
