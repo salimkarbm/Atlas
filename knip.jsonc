@@ -1,23 +1,15 @@
 {
   "$schema": "https://unpkg.com/knip/schema.json",
 
-  "entry": [
-    "src/index.ts"
-  ],
+  "entry": ["src/index.ts"],
 
-  "project": [
-    "src/**/*.ts",
-    "test/**/*.ts"
-  ],
+  "project": ["src/**/*.ts", "test/**/*.ts"],
 
-  "ignore": [
-    "dist/**",
-    "coverage/**"
-  ],
+  "ignore": ["dist/**", "coverage/**"],
 
   "ignoreDependencies": [],
 
   "ignoreBinaries": [],
 
-  "ignoreExportsUsedInFile": true
+  "ignoreExportsUsedInFile": true,
 }

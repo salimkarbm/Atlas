@@ -1,12 +1,12 @@
 import pino from 'pino';
 
-import { config } from '@app/config';
+import { config } from '@app/configuration/config';
 
 export const logger = pino({
-  level: config.application.env === 'development' ? 'debug' : 'info',
+  level: config.server.environment === 'development' ? 'debug' : 'info',
 
   transport:
-    config.application.env === 'development'
+    config.server.environment === 'development'
       ? {
           target: 'pino-pretty',
         }

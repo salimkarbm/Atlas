@@ -1,5 +1,5 @@
 import { createServer } from '@app/server';
-import { config } from '@app/config';
+import { config } from '@app/configuration/config';
 import { logger } from '@infra/logging/logger';
 
 import { ApplicationKernel } from './application-kernel';
@@ -11,10 +11,10 @@ export function bootstrap() {
 
   const app = createServer();
 
-  const server = app.listen(config.application.port, () => {
+  const server = app.listen(config.server.port, () => {
     logger.info(
       {
-        port: config.application.port,
+        port: config.server.port,
       },
       'Atlas API started',
     );

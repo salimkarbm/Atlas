@@ -14,10 +14,10 @@ Epic 2 — Code Quality
     ⏳ Knip
 
 Epic 3 — Database Infrastructure
-🟡 In Progress
+🟡 Not Started
 
-    ✅ Configuration
-    ✅ DataSource
+    ⏳Configuration
+    ⏳ DataSource
     ⏳ Naming Strategy
     ⏳ Migrations
     ⏳ Transactions
