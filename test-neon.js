@@ -2,7 +2,8 @@ const { Client } = require('pg');
 
 (async () => {
   const client = new Client({
-    connectionString: 'postgresql://neondb_owner:npg_ulk9SOgH8wNM@ep-dark-cell-au2ml9kv-pooler.c-10.us-east-1.aws.neon.tech/neondb?sslmode=require',
+    connectionString:
+      'postgresql://neondb_owner:npg_ulk9SOgH8wNM@ep-dark-cell-au2ml9kv-pooler.c-10.us-east-1.aws.neon.tech/neondb?sslmode=require',
     ssl: { rejectUnauthorized: false },
     connectionTimeoutMillis: 10000,
   });
