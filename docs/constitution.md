@@ -389,6 +389,31 @@ Every amendment should:
 
 The Constitution should evolve deliberately, never reactively.
 
+## Infrastructure Standards
+
+### Configuration
+
+- All configuration must be strongly typed.
+- Configuration objects are immutable.
+- Environment variables are accessed only within the configuration module.
+
+### Persistence
+
+- A single application DataSource must be used.
+- Database schema changes are managed exclusively through migrations.
+- `synchronize: true` is prohibited.
+- Database naming follows the project's SnakeCaseNamingStrategy.
+
+### Imports
+
+- The project uses standard relative imports.
+- Path aliases are not used unless approved through an ADR.
+
+### Infrastructure
+
+- Each infrastructure package owns its own implementation details.
+- Generic utilities are introduced only when shared by multiple packages.
+
 ---
 
 # Closing Statement

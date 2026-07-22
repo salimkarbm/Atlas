@@ -1,4 +1,4 @@
-import { registerContainer } from '@infra/container';
+import { registerContainer } from '../../infrastructure/container';
 
 export class ApplicationKernel {
   public initialize(): void {

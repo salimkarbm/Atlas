@@ -3,7 +3,7 @@ import cors from 'cors';
 import express from 'express';
 import helmet from 'helmet';
 
-import { requestLogger } from '@infra/logging/request-logger';
+import { requestLogger } from '../infrastructure/logging';
 import { healthRouter } from './routes/health.route';
 
 export function createServer() {
