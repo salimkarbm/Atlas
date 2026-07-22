@@ -1,6 +1,6 @@
 import type { DataSourceOptions } from 'typeorm';
 
-import { config } from '../../../app/configuration/config';
+import { config } from '../../../Application/Configuration/config';
 import { SnakeCaseNamingStrategy } from './naming';
 import { DATABASE_PATHS } from '../path';
 

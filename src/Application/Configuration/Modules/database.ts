@@ -1,4 +1,4 @@
-import type { Environment } from '../internal/schema';
+import type { Environment } from '../Internal/schema';
 import type { DatabaseConfiguration } from '../types';
 
 export function createDatabaseConfiguration(environment: Environment): DatabaseConfiguration {

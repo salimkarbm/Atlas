@@ -1,8 +1,8 @@
-import { createDatabaseConfiguration } from './modules/database';
-import { createServerConfiguration } from './modules/server';
-import { environmentSchema } from './internal/schema';
+import { createDatabaseConfiguration } from './Modules/database';
+import { createServerConfiguration } from './Modules/server';
+import { environmentSchema } from './Internal/schema';
 import type { ApplicationConfiguration } from './types';
-import { ConfigurationError } from '../../core/errors/configuration.error';
+import { ConfigurationError } from '../../Core/errors/configuration.error';
 
 export function createConfig(source: NodeJS.ProcessEnv = process.env): ApplicationConfiguration {
   const parsed = environmentSchema.safeParse(source);
