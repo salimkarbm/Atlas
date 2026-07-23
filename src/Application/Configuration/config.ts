@@ -1,6 +1,6 @@
 import { createDatabaseConfiguration } from './Modules/database';
 import { createServerConfiguration } from './Modules/server';
-import { environmentSchema } from './Internal/schema';
+import { environmentSchema } from './Internal';
 import type { ApplicationConfiguration } from './types';
 import { ConfigurationError } from '../../Core/errors/configuration.error';
 

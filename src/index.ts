@@ -1,4 +1,4 @@
-import './Application/Configuration/Internal/environment-loader';
+import './Application/Configuration/Internal';
 import 'reflect-metadata';
 
 import { loadEnvironment } from './Application/Configuration/Internal/environment-loader';

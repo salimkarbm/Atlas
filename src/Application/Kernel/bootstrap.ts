@@ -2,7 +2,7 @@ import { createServer } from '../Server';
 import { config } from '../Configuration/config';
 import { logger } from '../../Infrastructure/Logging';
 
-import { ApplicationKernel } from './application-kernel';
+import { ApplicationKernel } from './index';
 
 export function bootstrap() {
   const kernel = new ApplicationKernel();

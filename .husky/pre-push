@@ -1,4 +1,4 @@
-npm run depcheck
+npm run depcruise
 npm run typecheck
 npm test
 npm run build
