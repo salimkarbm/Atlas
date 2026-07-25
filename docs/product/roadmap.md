@@ -99,7 +99,7 @@ Future milestones will be introduced only after the successful completion and re
 Current Pull Request
 
 ```
-PR-0006.9
+Transition to PR-0007.0
 
 Documentation & Governance
 ```
@@ -107,15 +107,15 @@ Documentation & Governance
 Current Milestone
 
 ```
-Milestone 1
+Milestone 2
 
-Engineering Foundation
+Platform Architecture
 ```
 
 Next Pull Request
 
 ```
-PR-0007.0
+Preparing PR-0007.0
 
 Atlas Platform Model
 ```
