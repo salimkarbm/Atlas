@@ -6,4 +6,12 @@ An ADR documents a significant architectural decision, the alternatives consider
 
 ADRs are created only when a decision requires explicit architectural reasoning. They are not intended to duplicate information contained in the Engineering Constitution, Roadmap, Milestones, or other architectural documentation.
 
-The first ADR will be introduced when the project reaches a decision that benefits from long-term architectural traceability.
+Read in order.
+
+ADR-0001 establishes the platform architecture.
+
+Each subsequent ADR builds upon the decisions established before it.
+
+These ADRs collectively define the architectural axioms of Atlas.
+
+Future ADRs should reference the foundational ADRs where applicable and must not contradict them without formally superseding the affected decision..

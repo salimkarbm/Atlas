@@ -139,7 +139,18 @@ These constraints preserve architectural consistency as the platform evolves.
 
 ---
 
-# 9. Relationship to Other Documents
+# 9. Architectural Invariants
+
+- Atlas is always multi-tenant.
+- Every resource has an owner.
+- Every resource belongs to one tenant unless platform-owned.
+- Business capabilities respect bounded contexts.
+- Ownership precedes authorization.
+- Platform concepts remain technology-independent.
+
+---
+
+# 10. Relationship to Other Documents
 
 This document intentionally delegates detailed topics to their canonical documents.
 
@@ -151,3 +162,16 @@ This document intentionally delegates detailed topics to their canonical documen
 | `data-classification.md` | Classification of platform and tenant data |
 
 This separation of responsibilities ensures that the Atlas Platform Model remains concise, authoritative, and focused on defining the platform itself rather than duplicating architectural knowledge maintained elsewhere.
+
+# 11. Architectural Invariants
+
+- The repository mirrors the architecture.
+- Every architectural concept has a single canonical owner.
+- Business capabilities are partitioned into bounded domains.
+- Ownership precedes authorization.
+- Data is classified by ownership scope.
+- Architecture precedes implementation.
+- Implementation must not redefine architecture.
+- Documentation evolves with implementation.
+- Every significant architectural decision is captured in an ADR.
+- Technology choices must not invalidate architectural concepts.
