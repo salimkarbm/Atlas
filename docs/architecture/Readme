@@ -44,6 +44,8 @@ Each section builds upon the decisions established by the sections above it.
 
 The Engineering documentation defines **how Atlas is engineered**.
 
+This includes the shared developer infrastructure that supports consistent development, testing, and quality across all business modules.
+
 It contains the project's engineering governance, standards, conventions, and development process.
 
 Typical documents include:

@@ -95,4 +95,6 @@ The Architecture Review Board recommends:
 
 Milestone 2 is approved as complete.
 
-The repository is authorized to proceed to **Milestone 3 — Core Platform**, beginning with the Design phase for **PR-0008.0 — Identity & Access Management**.
+The repository is authorized to proceed to **Begin Milestone 3 — Developer Foundation.**, The Architecture Review Board recommends establishing the shared Developer Foundation before introducing the first business bounded context.
+
+This milestone provides the common engineering capabilities required by every future module and ensures that business development begins on a mature, consistent developer platform.

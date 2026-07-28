@@ -151,8 +151,12 @@ This milestone reinforced several engineering principles:
 
 # Next Milestone
 
-**Milestone 3 — Core Platform**
+Next Milestone
 
-The next milestone begins the Design and Implementation of Atlas bounded contexts using the Platform Architecture established during this milestone.
+Milestone 3 — Developer Foundation
 
-All future work must inherit the principles, terminology, boundaries, ownership semantics, and governance defined by the Platform Foundation.
+This milestone establishes the shared developer capabilities required by every future bounded context.
+
+It includes testing infrastructure, shared developer tooling, testing conventions, and other engineering capabilities that improve consistency and developer productivity.
+
+The completion of Milestone 3 prepares the platform for the implementation of business modules beginning with Identity & Access Management.

@@ -97,6 +97,14 @@ Description
 
 ---
 
+impact:
+platform_architecture: true
+engineering_governance: false
+roadmap: false
+breaking_change: false
+
+---
+
 ## Review
 
 Reviewed By:

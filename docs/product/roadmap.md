@@ -78,11 +78,16 @@ See:
 
 ---
 
-## Milestone 3 — Core Platform
+## Milestone 3 — Developer Foundation
 
 **Theme**
 
-Design and implement the core bounded contexts of Atlas using the approved Platform Architecture.
+Build the engineering capabilities that every business module depends upon.
+
+**Objective**
+Provide the shared tooling, conventions, and infrastructure required to develop, test, and maintain Atlas consistently.
+
+This milestone is about developer experience, engineering quality, and productivity—not business functionality
 
 **Status**
 
@@ -106,14 +111,13 @@ Current Milestone
 
 Milestone 3
 
-Core Platform
+Developer Foundation
 
 Next Pull Request
 
 PR-0008.0
 
-Identity & Access Management
-(Design Phase)
+Developer Foundation
 
 ```
 
@@ -134,6 +138,9 @@ Engineering Foundation
 │
 ▼
 Platform Architecture
+│
+▼
+Developer Foundation
 │
 ▼
 Core Platform
@@ -170,9 +177,12 @@ Platform Architecture
 │
 ▼
 Milestone 3
-Core Platform
+Developer Foundation
 │
 ▼
+Milestone 4
+Core Platform
+
 Future Platform Capabilities
 
 ## Roadmap Scope

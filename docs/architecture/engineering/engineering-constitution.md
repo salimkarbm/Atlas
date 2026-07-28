@@ -1,9 +1,9 @@
 ---
 title: Atlas Engineering Constitution
 status: Accepted
-version: 1.0
+version: 1.1
 owner: Architecture
-last_updated: 2026-07-24
+last_updated: 2026-07-28
 ---
 
 # Atlas Engineering Constitution
@@ -176,7 +176,26 @@ Premature abstraction increases maintenance cost and obscures intent.
 - Prefer explicit designs over clever implementations.
 - Introduce complexity only when supported by demonstrated requirements.
 
-# Article IX — Single Responsibility
+# Article IX — Planning Integrity
+
+Principle
+
+Planning artifacts are authoritative records of approved engineering and product direction.
+
+## Rationale
+
+Roadmaps, milestones, architecture documents, and planning artifacts communicate the intended evolution of the platform. They should evolve through deliberate planning and governance rather than being rewritten to reflect implementation decisions after the fact.
+
+Maintaining planning integrity preserves traceability, supports informed decision-making, and provides an accurate historical record of the project's evolution.
+
+## Implications
+
+Planning artifacts evolve through approved architectural or product decisions.
+Implementation follows approved plans rather than redefining them.
+Significant planning changes are documented and reviewed before implementation begins.
+Historical planning decisions are preserved to maintain project traceability.
+
+# Article X — Single Responsibility
 
 ## Principle
 
@@ -195,7 +214,7 @@ This principle applies equally to software components, documentation, and engine
 - Concepts should have one authoritative source within the repository.
 - Responsibilities should not overlap unnecessarily.
 
-# Article X — Responsibility Before Implementation
+# Article XI — Responsibility Before Implementation
 
 ## Principle
 
@@ -213,7 +232,7 @@ Implementation technologies may change over time, but architectural responsibili
 - Architecture is described independently of programming languages, frameworks, and infrastructure.
 - Documentation focuses on enduring responsibilities rather than transient implementation details.
 
-# Article XI — Engineering Baseline
+# Article XII — Engineering Baseline
 
 ## Principle
 
