@@ -42,7 +42,7 @@ Build the engineering system that supports Atlas.
 
 **Status**
 
-✅ Complete _(Documentation Close-out in Progress)_
+✅ Complete
 
 **Objective**
 
@@ -64,11 +64,17 @@ Define the Atlas platform model.
 
 **Status**
 
-🟢 Planned
+🟢 Complete
 
 **Objective**
 
 Define the Atlas Core Domain Model, ubiquitous business language, platform boundaries, bounded contexts, ownership model, authorization model, and canonical relationships that govern all future platform capabilities.
+
+**Documentation**
+
+See:
+
+`docs/product/milestones/milestone-2.md`
 
 ---
 
@@ -76,11 +82,11 @@ Define the Atlas Core Domain Model, ubiquitous business language, platform bound
 
 **Theme**
 
-Build the core capabilities of Atlas.
+Design and implement the core bounded contexts of Atlas using the approved Platform Architecture.
 
 **Status**
 
-Planned
+🟢 Planned
 
 ---
 
@@ -96,42 +102,29 @@ Future milestones will be introduced only after the successful completion and re
 
 # Current Focus
 
-Current Pull Request
-
-```
-Transition to PR-0007.0
-
-Documentation & Governance
-```
-
 Current Milestone
 
-```
-Milestone 2
+Milestone 3
 
-Platform Architecture
-```
+Core Platform
 
 Next Pull Request
 
-```
-Preparing PR-0007.0
+PR-0008.0
 
-Atlas Platform Model
+Identity & Access Management
+(Design Phase)
+
 ```
 
 ---
 
 ## Recently Completed
 
-- Repository Foundation
-- Development Infrastructure
-- Code Quality Infrastructure
-- Persistence Infrastructure
-- Documentation Architecture
-- Engineering Constitution
-- Engineering Glossary
-- Milestone One Engineering Review
+- Engineering Foundation
+- Platform Foundation
+- Foundational Architecture Decision Records
+- Architecture Governance
 
 ---
 
@@ -189,3 +182,4 @@ The roadmap defines _what_ Atlas intends to accomplish and _when_ major engineer
 It intentionally does not define _how_ those phases are implemented. Detailed planning belongs to milestone documents, architectural decisions belong to ADRs, and implementation details belong to pull requests.
 
 This separation of responsibilities ensures that the roadmap remains stable, concise, and focused on the long-term evolution of the platform.
+```

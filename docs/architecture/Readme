@@ -1,0 +1,165 @@
+---
+
+title: Atlas Architecture
+status: Living
+version: 1.0
+owner: Architecture
+last_updated: 2026-07-25
+------------------------
+
+# Atlas Architecture
+
+## Purpose
+
+The Atlas Architecture documentation defines the structural foundation of the Atlas platform.
+
+It organizes the architectural knowledge of the project into distinct layers, each with a single responsibility.
+
+This documentation should be read before contributing to the implementation of the platform.
+
+---
+
+# Architecture Organization
+
+The Atlas architecture is organized into the following sections.
+
+```text
+Engineering
+        │
+        ▼
+Platform
+        │
+        ▼
+Architecture Decision Records (ADRs)
+        │
+        ▼
+Domains
+```
+
+Each section builds upon the decisions established by the sections above it.
+
+---
+
+# Engineering
+
+The Engineering documentation defines **how Atlas is engineered**.
+
+It contains the project's engineering governance, standards, conventions, and development process.
+
+Typical documents include:
+
+* Engineering Constitution
+* Engineering Glossary
+* Documentation Standards
+* Development Standards
+* Testing Standards
+* Repository Conventions
+
+Engineering documentation establishes the rules that govern the development of the project.
+
+---
+
+# Platform
+
+The Platform documentation defines **what Atlas is**.
+
+It contains the canonical architectural model of the platform and the concepts shared across all business domains.
+
+The Platform Architecture consists of:
+
+* Atlas Platform Model
+* Domain Glossary
+* Context Map
+* Ownership Model
+* Data Classification
+
+Every future domain inherits the concepts defined by the Platform Architecture.
+
+---
+
+# Architecture Decision Records (ADRs)
+
+Architecture Decision Records explain **why** significant architectural decisions were made.
+
+Each ADR documents:
+
+* the architectural context,
+* the decision,
+* the rationale,
+* the consequences,
+* the alternatives considered.
+
+The foundational ADRs establish the architectural principles upon which Atlas is built.
+
+Future architectural decisions should extend these foundations rather than redefine them.
+
+---
+
+# Domains
+
+Domain Architecture documents describe individual bounded contexts within the Atlas platform.
+
+Each domain extends the Platform Architecture while remaining consistent with the Engineering Constitution and the accepted Architecture Decision Records.
+
+Domain Architecture should never redefine concepts that already exist within the Platform Architecture.
+
+---
+
+# Reading Order
+
+New contributors should read the architecture documentation in the following order.
+
+1. Engineering Constitution
+2. Atlas Platform Model
+3. Domain Glossary
+4. Context Map
+5. Ownership Model
+6. Data Classification
+7. Foundational ADRs
+8. Domain Architecture
+
+Following this sequence provides the necessary context before reviewing design or implementation artifacts.
+
+---
+
+# Architectural Responsibilities
+
+Each architectural layer has a distinct responsibility.
+
+| Layer       | Responsibility                                                       |
+| ----------- | -------------------------------------------------------------------- |
+| Engineering | Defines how the project is governed and developed.                   |
+| Platform    | Defines the canonical platform architecture.                         |
+| ADRs        | Explain the rationale behind architectural decisions.                |
+| Domains     | Apply the platform architecture to individual business capabilities. |
+
+Maintaining these responsibilities preserves a clear separation of concerns across the repository.
+
+---
+
+# Relationship to Design and Implementation
+
+The Architecture documentation intentionally excludes implementation details.
+
+Architecture defines enduring concepts, responsibilities, boundaries, and governance.
+
+Design translates architecture into implementable solutions.
+
+Implementation realizes approved designs through source code and supporting artifacts.
+
+Changes to implementation should not redefine approved architectural concepts.
+
+---
+
+# Governance
+
+The Architecture documentation is a living body of knowledge.
+
+Changes should be made through the project's standard pull request process and reviewed for consistency with:
+
+* the Engineering Constitution,
+* the Platform Architecture,
+* accepted Architecture Decision Records, and
+* the established architectural terminology.
+
+The Architecture documentation serves as the authoritative reference for the long-term evolution of the Atlas platform.

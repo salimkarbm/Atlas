@@ -3,7 +3,7 @@ title: Milestone 1 — Engineering Foundation
 status: Complete
 version: 1.0
 owner: Architecture
-last_updated: 2026-07-23
+last_updated: 2026-07-28
 ---
 
 # Milestone 1 — Engineering Foundation
