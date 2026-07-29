@@ -444,4 +444,4 @@ Every folder should communicate intent.
 
 Every module should reflect the architecture.
 
-Consistency is a long-term investment in engineering quality.
+Consistency is a long-term investment in Engineering Quality Strategy.

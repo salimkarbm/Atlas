@@ -1,11 +1,12 @@
 ---
-
 title: Atlas Architecture
 status: Living
 version: 1.0
 owner: Architecture
 last_updated: 2026-07-25
-------------------------
+---
+
+---
 
 # Atlas Architecture
 
@@ -50,12 +51,12 @@ It contains the project's engineering governance, standards, conventions, and de
 
 Typical documents include:
 
-* Engineering Constitution
-* Engineering Glossary
-* Documentation Standards
-* Development Standards
-* Testing Standards
-* Repository Conventions
+- Engineering Constitution
+- Engineering Glossary
+- Documentation Standards
+- Development Standards
+- Testing Standards
+- Repository Conventions
 
 Engineering documentation establishes the rules that govern the development of the project.
 
@@ -69,11 +70,11 @@ It contains the canonical architectural model of the platform and the concepts s
 
 The Platform Architecture consists of:
 
-* Atlas Platform Model
-* Domain Glossary
-* Context Map
-* Ownership Model
-* Data Classification
+- Atlas Platform Model
+- Domain Glossary
+- Context Map
+- Ownership Model
+- Data Classification
 
 Every future domain inherits the concepts defined by the Platform Architecture.
 
@@ -85,11 +86,11 @@ Architecture Decision Records explain **why** significant architectural decision
 
 Each ADR documents:
 
-* the architectural context,
-* the decision,
-* the rationale,
-* the consequences,
-* the alternatives considered.
+- the architectural context,
+- the decision,
+- the rationale,
+- the consequences,
+- the alternatives considered.
 
 The foundational ADRs establish the architectural principles upon which Atlas is built.
 
@@ -159,9 +160,9 @@ The Architecture documentation is a living body of knowledge.
 
 Changes should be made through the project's standard pull request process and reviewed for consistency with:
 
-* the Engineering Constitution,
-* the Platform Architecture,
-* accepted Architecture Decision Records, and
-* the established architectural terminology.
+- the Engineering Constitution,
+- the Platform Architecture,
+- accepted Architecture Decision Records, and
+- the established architectural terminology.
 
 The Architecture documentation serves as the authoritative reference for the long-term evolution of the Atlas platform.

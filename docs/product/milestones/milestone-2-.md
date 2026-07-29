@@ -153,7 +153,7 @@ This milestone reinforced several engineering principles:
 
 Next Milestone
 
-Milestone 3 — Developer Foundation
+Milestone 3 — Engineering Capabilities
 
 This milestone establishes the shared developer capabilities required by every future bounded context.
 

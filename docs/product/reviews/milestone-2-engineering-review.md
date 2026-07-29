@@ -95,6 +95,6 @@ The Architecture Review Board recommends:
 
 Milestone 2 is approved as complete.
 
-The repository is authorized to proceed to **Begin Milestone 3 — Developer Foundation.**, The Architecture Review Board recommends establishing the shared Developer Foundation before introducing the first business bounded context.
+The repository is authorized to proceed to **Begin Milestone 3 — Engineering Capabilities.**, The Architecture Review Board recommends establishing the shared Engineering Capabilities before introducing the first business bounded context.
 
 This milestone provides the common engineering capabilities required by every future module and ensures that business development begins on a mature, consistent developer platform.

@@ -87,7 +87,7 @@ Build the engineering capabilities that every business module depends upon.
 **Objective**
 Provide the shared tooling, conventions, and infrastructure required to develop, test, and maintain Atlas consistently.
 
-This milestone is about developer experience, engineering quality, and productivity—not business functionality
+This milestone is about developer experience, Engineering Quality Strategy, and productivity—not business functionality
 
 **Status**
 
@@ -111,13 +111,13 @@ Current Milestone
 
 Milestone 3
 
-Developer Foundation
+Engineering Capabilities
 
 Next Pull Request
 
 PR-0008.0
 
-Developer Foundation
+Engineering Capabilities
 
 ```
 
@@ -140,7 +140,7 @@ Engineering Foundation
 Platform Architecture
 │
 ▼
-Developer Foundation
+Engineering Capabilities
 │
 ▼
 Core Platform
@@ -177,7 +177,7 @@ Platform Architecture
 │
 ▼
 Milestone 3
-Developer Foundation
+Engineering Capabilities
 │
 ▼
 Milestone 4

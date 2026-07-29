@@ -1,153 +1,238 @@
+````markdown
 ---
-title: Atlas Engineering
+title: Engineering Architecture
 status: Living
-version: 1.0
+version: 2.0
 owner: Architecture
-last_updated: 2026-07-25
+last_updated: 2026-07-29
 ---
 
----
+# Engineering Architecture
 
-# Atlas Engineering
+The Engineering Architecture defines how Atlas is engineered.
 
-## Purpose
+It establishes the engineering principles, governance, standards, and shared capabilities that support the development and evolution of the Atlas platform.
 
-The Engineering documentation defines **how Atlas is engineered**.
-
-It establishes the governance, standards, conventions, and engineering practices that guide the development and evolution of the platform.
-
-Unlike the Platform Architecture, which defines what Atlas is, the Engineering documentation defines how Atlas is built, maintained, and governed.
+Unlike the Platform Architecture, which defines the business structure and architectural model of Atlas, the Engineering Architecture defines the engineering system used to build, validate, maintain, and evolve the platform.
 
 ---
 
-# Scope
+# Purpose
 
-The Engineering documentation governs the engineering process rather than the business architecture.
+The Engineering Architecture exists to:
 
-It includes:
+- Establish engineering governance.
+- Define the engineering lifecycle.
+- Promote consistency across the platform.
+- Provide shared engineering capabilities.
+- Preserve Engineering Quality Strategy.
+- Support long-term maintainability.
 
-- Engineering governance
-- Documentation standards
-- Repository conventions
-- Development standards
-- Testing standards
-- Engineering terminology
-
-These documents apply to every repository contribution regardless of the business capability being developed.
+Every future bounded context inherits the Engineering Architecture.
 
 ---
 
-# Engineering Documents
+# Engineering Architecture Overview
 
-The Engineering section consists of the following documents.
+The Engineering Architecture is composed of five major areas.
 
-## Engineering Constitution
+```
+Engineering Architecture
 
-Defines the foundational engineering principles that govern the Atlas project.
-
-Every significant engineering and architectural decision should be evaluated against the Constitution.
-
----
-
-## Engineering Glossary
-
-Defines engineering terminology used throughout the repository.
-
-This glossary contains technical and engineering concepts.
-
-Business terminology belongs in the Platform Domain Glossary.
-
----
-
-## Documentation Standards
-
-Defines how documentation is authored, organized, reviewed, and maintained across the repository.
-
-Documentation is treated as a first-class deliverable.
-
----
-
-## Repository Conventions
-
-Defines the organization and conventions of the repository, including documentation structure and contribution expectations.
-
----
-
-## Development Standards
-
-Defines engineering practices for implementing software, including coding conventions, quality expectations, and review requirements.
-
----
-
-## Testing Standards
-
-Defines the testing philosophy, expectations, and quality criteria that apply across the platform.
-
----
-
-# Reading Order
-
-New contributors should read the Engineering documentation in the following order.
-
-```text
-1. Engineering Constitution
-        │
-        ▼
-2. Engineering Glossary
-        │
-        ▼
-3. Documentation Standards
-        │
-        ▼
-4. Repository Conventions
-        │
-        ▼
-5. Development Standards
-        │
-        ▼
-6. Testing Standards
+├── Governance
+│
+├── Lifecycle
+│
+├── Standards
+│   ├── Repository Conventions
+│   ├── Documentation Standards
+│   ├── Development Standards
+│   └── Testing Standards
+│
+└── Developer Foundation
 ```
 
-This sequence introduces the project's governance before its implementation practices.
-
----
-
-# Relationship to Other Architecture
-
-The Engineering documentation forms the foundation of the Atlas Architecture.
-
-```text
-Engineering
-        │
-        ▼
-Platform Architecture
-        │
-        ▼
-Architecture Decision Records
-        │
-        ▼
-Domain Architecture
-        │
-        ▼
-Design
-        │
-        ▼
-Implementation
-```
-
-Every subsequent architectural layer inherits the governance established by the Engineering documentation.
+Each area has a distinct responsibility.
 
 ---
 
 # Governance
 
-The Engineering documentation is the authoritative source for engineering practices within Atlas.
+Engineering Governance defines the principles that guide all engineering decisions.
 
-Changes should:
+Primary documents include:
 
-- Preserve consistency with the Engineering Constitution.
-- Support long-term maintainability.
-- Avoid duplicating information owned by other documentation.
-- Follow the project's standard pull request process.
+- Engineering Constitution
+- Engineering Reviews
+- Architecture Decision Records (ADRs)
 
-Engineering documentation should evolve deliberately as the project and its engineering practices mature.
+Governance ensures that Atlas evolves through deliberate and reviewable engineering decisions.
+
+---
+
+# Lifecycle
+
+The Architecture Lifecycle defines how significant engineering work progresses.
+
+```
+Discovery
+    ↓
+Architecture
+    ↓
+Design
+    ↓
+Implementation
+    ↓
+Review
+    ↓
+Merge
+```
+
+The lifecycle applies to engineering capabilities, platform capabilities, and business modules.
+
+---
+
+# Standards
+
+Engineering Standards define the conventions used throughout Atlas.
+
+Examples include:
+
+- Documentation Standards
+- Repository Conventions
+- Development Standards
+- Coding Standards
+- Testing Standards
+
+Standards improve consistency and reduce unnecessary variation across the platform.
+
+---
+
+# Developer Foundation
+
+The Developer Foundation provides the shared engineering capabilities that every bounded context inherits.
+
+Its purpose is to eliminate duplicated engineering infrastructure and establish a consistent developer experience across Atlas.
+
+The Developer Foundation includes architectural guidance for:
+
+- Engineering Capabilities
+- Testing Architecture
+- Testing Philosophy
+- Engineering Quality Strategy
+
+Implementation details are intentionally documented outside the architecture and are introduced during the Design and Implementation phases.
+
+---
+
+# Repository Conventions
+
+Repository Conventions define how engineering artifacts are organized and maintained.
+
+They include guidance for:
+
+- Repository structure
+- Documentation organization
+- Pull Request lifecycle
+- Review process
+- Template usage
+
+Repository conventions ensure that the engineering knowledge base remains consistent and maintainable as Atlas evolves.
+
+---
+
+# Relationship to Other Architecture
+
+The Engineering Architecture complements the Platform Architecture.
+
+| Engineering Architecture        | Platform Architecture |
+| ------------------------------- | --------------------- |
+| How Atlas is engineered         | How Atlas is modeled  |
+| Engineering governance          | Business architecture |
+| Shared engineering capabilities | Platform capabilities |
+| Engineering standards           | Domain concepts       |
+| Development lifecycle           | Platform model        |
+
+Together they provide the complete architectural foundation of Atlas.
+
+---
+
+# Architecture Principles
+
+The Engineering Architecture follows these principles:
+
+- Engineering capabilities are shared platform capabilities.
+- Architecture precedes design.
+- Design precedes implementation.
+- Documentation is a first-class deliverable.
+- Shared engineering capabilities reduce duplication.
+- Quality is a platform responsibility.
+- Engineering decisions remain independent of business domains whenever practical.
+
+---
+
+# Scope
+
+The Engineering Architecture governs:
+
+- Engineering governance
+- Engineering lifecycle
+- Shared engineering capabilities
+- Engineering standards
+- Repository conventions
+- Engineering Quality Strategy
+
+It does not define:
+
+- Business domains
+- Business workflows
+- Domain models
+- Product capabilities
+
+Those concerns belong to the Platform Architecture.
+
+---
+
+# Engineering Architecture Documents
+
+## Governance
+
+- Engineering Constitution
+
+## Lifecycle
+
+- Architecture Lifecycle
+
+## Standards
+
+- Repository Conventions
+- Documentation Standards
+- Development Standards
+- Testing Standards
+
+## Developer Foundation
+
+- Developer Foundation
+- Engineering Capabilities
+- Testing Architecture
+- Testing Philosophy
+- Engineering Quality Strategy
+
+---
+
+# Evolution
+
+The Engineering Architecture evolves through the Architecture Lifecycle and is governed by the Engineering Constitution.
+
+Changes to the Engineering Architecture must preserve consistency, maintainability, and long-term sustainability.
+
+Architectural refinements should extend the existing engineering system rather than introduce competing approaches.
+
+---
+
+# Summary
+
+The Engineering Architecture provides the engineering foundation upon which Atlas is built.
+
+It defines the governance, lifecycle, standards, and shared engineering capabilities that enable every future bounded context to be developed consistently, reviewed effectively, and maintained over the lifetime of the platform.
+````

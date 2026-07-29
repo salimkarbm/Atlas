@@ -42,7 +42,7 @@ Define the expected outcomes.
 Examples:
 
 - Introduce a new architectural capability.
-- Improve engineering quality.
+- Improve Engineering Quality Strategy.
 - Establish shared infrastructure.
 - Implement an approved design.
 - Refine existing functionality.

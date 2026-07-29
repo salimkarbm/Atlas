@@ -42,7 +42,6 @@ module.exports = {
         circular: true,
       },
     },
-  
   ],
   options: {
     doNotFollow: {
