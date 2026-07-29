@@ -14,7 +14,7 @@ last_updated: 2026-07-25
 
 Architecture Decision Records (ADRs) document the significant architectural decisions that shape the Atlas platform.
 
-While the Platform Architecture defines **what** Atlas is, ADRs explain **why** those architectural decisions were made.
+While the Architecture Specifications define the architectural responsibilities of Atlas, ADRs explain why significant architectural decisions were made..
 
 Each ADR captures the context, decision, rationale, consequences, and alternatives considered, providing a permanent record of the platform's architectural evolution.
 
@@ -36,17 +36,17 @@ ADRs complement the Platform Architecture and should be considered part of the p
 
 # When to Create an ADR
 
-An ADR should be created when a decision:
+An ADR should not be created for:
 
-- Defines or changes the platform architecture.
-- Introduces a new architectural principle.
-- Changes architectural boundaries.
-- Changes ownership semantics.
-- Affects multiple bounded contexts.
-- Alters long-term architectural direction.
-- Supersedes a previously accepted architectural decision.
+- Routine implementation decisions.
+- Coding conventions.
+- Framework configuration.
+- Repository organization.
+- Milestone planning.
+- Development workflows.
+- Temporary engineering decisions.
 
-Routine implementation, design, or development decisions should not be documented as ADRs.
+These concerns belong in implementation, development documentation, or engineering planning rather than the architectural decision record repository.
 
 ---
 
@@ -166,16 +166,19 @@ Architecture Decision Records support, but do not replace, the Platform Architec
 The relationship is:
 
 ```text id="b4r8ph"
-Engineering
+Engineering Constitution
         │
         ▼
-Platform Architecture
+Architecture Lifecycle
+        │
+        ▼
+Architecture Specifications
         │
         ▼
 Architecture Decision Records
         │
         ▼
-Domain Architecture
+Design Specifications
 ```
 
 The Platform Architecture defines the canonical architectural model.
@@ -183,6 +186,12 @@ The Platform Architecture defines the canonical architectural model.
 The ADRs explain the reasoning behind that model.
 
 Domain Architecture inherits both.
+
+Architecture Decision Records influence architectural responsibilities.
+
+Approved architectural decisions are subsequently realized through the corresponding Design Specifications.
+
+Implementation realizes the approved Design Specifications rather than the ADRs directly.
 
 ---
 
@@ -192,7 +201,11 @@ Architecture Decision Records are part of the Atlas Architecture documentation.
 
 Changes to accepted ADRs should be rare and require architectural review.
 
-A new ADR should be created when introducing a significant architectural decision.
+A new ADR should be created when introducing, changing, or superseding a significant architectural decision that affects the long-term architecture of the platform.
+
+ADRs should not duplicate information contained in the Engineering Constitution, Architecture Specifications, or Design Specifications.
+
+Instead, they document the rationale behind significant architectural decisions and reference the affected engineering artifacts.
 
 An existing ADR should only be modified to:
 

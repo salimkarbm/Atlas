@@ -38,23 +38,32 @@ The repository preserves the engineering intent of Atlas.
 
 ---
 
-# Article II — Documentation
+## Article II — Documentation
 
-## Principle
+### Principle
 
-Documentation is a first-class deliverable.
+Documentation is a first-class engineering deliverable and the authoritative source of architectural and engineering knowledge.
 
-## Rationale
+### Rationale
 
-Documentation is part of the software product.
+Documentation is an integral part of the software product.
 
-It communicates intent, preserves architectural knowledge, and enables long-term maintainability.
+It preserves engineering intent, communicates architectural decisions, defines approved designs, and provides the knowledge required for the long-term evolution of the platform.
 
-## Implications
+Documentation exists to support engineering decisions rather than create administrative overhead.
+
+### Implications
 
 - Documentation evolves alongside implementation.
-- Significant changes include corresponding documentation updates.
+- Significant engineering changes include corresponding documentation updates.
 - Documentation follows the same review process as source code.
+- Every document has a clearly defined owner and purpose.
+- Every engineering concept has a single authoritative source within the repository.
+- New documents are introduced only when they represent an independently evolving body of knowledge or eliminate recurring ambiguity.
+- Architecture documents define what the platform is responsible for.
+- Design documents define how approved architecture will be realized.
+- Implementation must remain consistent with approved Architecture and Design specifications.
+- Repository organization reflects architectural ownership rather than document type.
 
 ---
 
@@ -110,14 +119,18 @@ Small, well-defined increments improve quality, traceability, and review effecti
 
 ## Implications
 
-Every significant change follows a defined lifecycle:
+Every significant engineering change follows the Atlas Architecture Lifecycle:
 
 - Discovery
 - Architecture
+- Architecture Review
 - Design
+- Design Review
 - Implementation
-- Review
+- Engineering Review
 - Merge
+
+Each phase produces approved engineering artifacts that establish the baseline for the subsequent phase.
 
 ---
 
@@ -211,7 +224,10 @@ This principle applies equally to software components, documentation, and engine
 
 - Every document has a single canonical purpose.
 - Every module owns a clearly defined responsibility.
-- Concepts should have one authoritative source within the repository.
+- Every architectural capability has one canonical Architecture Specification.
+- Every architectural capability has one canonical Design Specification.
+- Concepts have one authoritative definition within the repository.
+- Supporting documents exist only when they have an independent lifecycle or provide standalone value.
 - Responsibilities should not overlap unnecessarily.
 
 # Article XI — Responsibility Before Implementation
@@ -236,7 +252,7 @@ Implementation technologies may change over time, but architectural responsibili
 
 ## Principle
 
-Approved engineering decisions establish the baseline for future work.
+Once a milestone baseline is approved, implementation proceeds against that baseline. Further architectural or design enhancements become the responsibility of subsequent milestones unless they are required to correct an approved defect or governance issue..
 
 ## Rationale
 

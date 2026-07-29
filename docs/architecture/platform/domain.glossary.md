@@ -353,3 +353,9 @@ New terms should be introduced only after they have been accepted through the pr
 Existing definitions should evolve only when intentional architectural decisions change the platform model.
 
 All architectural, implementation, API, and user-facing documentation should reference this glossary rather than redefining business concepts.
+
+## Related Documents
+
+- Platform Model
+- Bounded Contexts
+- Engineering Glossary
