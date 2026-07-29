@@ -28,7 +28,14 @@ export default tseslint.config(
 
     languageOptions: {
       parserOptions: {
-        projectService: true,
+        projectService: {
+          allowDefaultProject: [
+            'vitest.config.ts',
+            'eslint.config.mjs',
+            '*.config.ts',
+            '*.config.js',
+          ],
+        },
       },
 
       globals: {
@@ -46,6 +53,11 @@ export default tseslint.config(
         },
       ],
     },
+  },
+
+  {
+    files: ['*.config.ts', '*.config.js', '*.config.mjs', 'vitest.config.ts'],
+    extends: [tseslint.configs.disableTypeChecked],
   },
 
   eslintConfigPrettier,

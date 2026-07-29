@@ -1250,6 +1250,70 @@ Repository organization should prevent circular dependencies and reinforce archi
 
 ---
 
+## Repository Ownership
+
+Repository organization reflects architectural responsibilities rather than implementation technologies.
+
+Every top-level directory has a single, well-defined responsibility. Contributors should place new artifacts according to architectural ownership rather than convenience.
+
+| Directory         | Responsibility                                                                                                                                                                                |
+| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `application/`    | Platform-wide application composition, bootstrap, dependency injection, module registration, lifecycle orchestration, and other cross-module application concerns.                            |
+| `modules/`        | Business capabilities organized as bounded contexts. Each module owns its own `domain`, `application`, `infrastructure`, and `interfaces` layers.                                             |
+| `infrastructure/` | Platform-wide technical infrastructure shared across multiple modules, including configuration, persistence bootstrap, logging, messaging, caching, observability, and external integrations. |
+| `core/`           | Cross-cutting platform foundations that are independent of any single module. Only reusable platform abstractions, contracts, primitives, and shared utilities belong here.                   |
+| `test/`           | Shared engineering verification assets, including integration tests, end-to-end tests, fixtures, builders, factories, and common testing support.                                             |
+| `tools/`          | Repository-owned engineering tooling, such as architecture validation, dependency analysis, code generation, and other development utilities.                                                 |
+| `scripts/`        | Operational and development automation scripts used to support local development, maintenance, and release activities.                                                                        |
+| `docs/`           | Canonical project documentation, including engineering governance, architecture, design, development guidance, product planning, and templates.                                               |
+| `.github/`        | Repository automation, including workflows, issue templates, pull request templates, and repository configuration.                                                                            |
+
+---
+
+## Ownership Principles
+
+Repository ownership follows the principles established by the Engineering Constitution.
+
+### Single Responsibility
+
+Each top-level directory owns a distinct architectural responsibility.
+
+Responsibilities should not overlap or duplicate one another.
+
+---
+
+### Module Ownership
+
+Business functionality belongs within the appropriate bounded context under `src/modules`.
+
+Platform-wide directories must not contain module-specific business logic.
+
+---
+
+### Platform Foundation
+
+The `core` directory exists only for capabilities that are genuinely platform-wide and independent of any specific bounded context.
+
+Artifacts should not be promoted to `core` solely for convenience or reuse.
+
+---
+
+### Shared Infrastructure
+
+Technical capabilities shared across multiple modules belong within `src/infrastructure`.
+
+Module-specific infrastructure remains the responsibility of the owning bounded context.
+
+---
+
+### Repository Evolution
+
+New top-level directories should be introduced only when they represent a new architectural responsibility approved through the project's governance process.
+
+Existing responsibilities should not be redefined without corresponding architectural review.
+
+---
+
 # Repository Constraints
 
 The Repository Design shall:
