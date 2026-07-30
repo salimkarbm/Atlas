@@ -16,7 +16,6 @@
  * Additional shared testing capabilities should be added here
  * as they are introduced into the Testing Foundation.
  */
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface TestEnvironment {}
 
 /**

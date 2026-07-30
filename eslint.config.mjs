@@ -21,18 +21,34 @@ export default tseslint.config(
 
   js.configs.recommended,
 
-  ...tseslint.configs.strictTypeChecked,
+  // NON-TYPE-CHECKED for config files
+  {
+    files: [
+      '*.config.*',
+      'vitest.config.*',
+      'eslint.config.*',
+      'commitlint.config.*',
+      'tests/shared/setup/global-setup.ts',
+      'tests/integration/environment.ts',
+      'src/Infrastructure/Persistence/typeorm/**/*.ts',
+    ],
+    extends: [tseslint.configs.disableTypeChecked],
+    languageOptions: {
+       parser: tseslint.parser,
+      globals: { ...globals.node },
+    },
+  },
 
   {
-    files: ['**/*.ts'],
-
+    files: ['src/**/*.ts'],
+    extends: [...tseslint.configs.strictTypeChecked],
     languageOptions: {
       parserOptions: {
         projectService: {
           project: './tsconfig.eslint.json',
         },
       },
-
+       parser: tseslint.parser,
       globals: {
         ...globals.node,
       },
@@ -49,18 +65,5 @@ export default tseslint.config(
       ],
     },
   },
-  // NON-TYPE-CHECKED for config files
-  {
-    files: [
-      '*.config.*',
-      'vitest.config.*',
-      'eslint.config.*',
-      'commitlint.config.*',
-      'tests/shared/setup/**/*.ts',
-      'src/Infrastructure/Persistence/typeorm/**/*.ts',
-    ],
-    extends: [tseslint.configs.disableTypeChecked],
-  },
-
   eslintConfigPrettier,
 );
