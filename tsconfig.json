@@ -19,5 +19,5 @@
     "forceConsistentCasingInFileNames": true
   },
 
-  "include": ["src", "src/test-db.ts"]
+  "include": ["src"]
 }

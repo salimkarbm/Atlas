@@ -28,7 +28,9 @@ export default tseslint.config(
 
     languageOptions: {
       parserOptions: {
-        projectService: true,
+        projectService:{
+         project: './tsconfig.eslint.json',
+        },
       },
 
       globals: {
@@ -47,15 +49,15 @@ export default tseslint.config(
       ],
     },
   },
-
+  // NON-TYPE-CHECKED for config files
   {
     files: [
-      '*.config.ts',
-      '*.config.js',
-      '*.config.mjs',
-      '*.config.cjs',
-      '.config.mts',
+      '*.config.*',
       'vitest.config.*',
+      'eslint.config.*',      
+      'commitlint.config.*',
+      'tests/shared/setup/**/*.ts',
+      'src/Infrastructure/Persistence/typeorm/**/*.ts'
     ],
     extends: [tseslint.configs.disableTypeChecked],
   },

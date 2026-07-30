@@ -12,6 +12,8 @@ export default defineConfig({
 
     restoreMocks: true,
 
+    setupFiles: ['tests/setup/global-setup.ts'],
+
     coverage: {
       provider: 'v8',
 
