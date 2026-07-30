@@ -15,7 +15,7 @@ This directory contains all TypeORM migrations.
 Generate:
 
 ```bash
-npm run migration:generate -- src/infrastructure/database/migrations/<migration-name>
+npm run migration:generate -- src/infrastructure/migrations/<migration-name>
 ```
 
 Run:
