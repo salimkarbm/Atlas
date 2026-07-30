@@ -1,10 +1,16 @@
 /**
  * Atlas Testing Foundation
  *
- * Global test setup executed before every test run.
+ * Global test lifecycle.
  *
- * This file intentionally starts empty.
- * Extend it only when a shared initialization requirement
- * has been identified and approved.
+ * This file intentionally contains no initialization or cleanup logic.
+ * Extend only when shared lifecycle behavior is required.
  */
-export {};
+
+export function setup(): void {
+  // Intentionally empty.
+}
+
+export function teardown(): void {
+  // Intentionally empty.
+}

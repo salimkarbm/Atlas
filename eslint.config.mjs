@@ -28,8 +28,8 @@ export default tseslint.config(
 
     languageOptions: {
       parserOptions: {
-        projectService:{
-         project: './tsconfig.eslint.json',
+        projectService: {
+          project: './tsconfig.eslint.json',
         },
       },
 
@@ -54,10 +54,10 @@ export default tseslint.config(
     files: [
       '*.config.*',
       'vitest.config.*',
-      'eslint.config.*',      
+      'eslint.config.*',
       'commitlint.config.*',
       'tests/shared/setup/**/*.ts',
-      'src/Infrastructure/Persistence/typeorm/**/*.ts'
+      'src/Infrastructure/Persistence/typeorm/**/*.ts',
     ],
     extends: [tseslint.configs.disableTypeChecked],
   },
