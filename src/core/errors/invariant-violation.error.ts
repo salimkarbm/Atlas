@@ -1,4 +1,4 @@
-import { DomainError } from './index';
+import { DomainError } from './domain.error';
 
 /**
  * Represents the failure to satisfy a Core value object's invariant.
