@@ -11,7 +11,7 @@ export class ConfigurationError extends DomainError {
       })
       .join('\n');
 
-    super(`Invalid application configuration:\n\n${issues}`);
+    super('ConfigurationError', `Invalid application configuration:\n\n${issues}`);
     this.name = 'ConfigurationError';
   }
 }
