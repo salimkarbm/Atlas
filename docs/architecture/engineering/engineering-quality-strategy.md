@@ -1,289 +1,362 @@
-````markdown id="q7f3na"
+````markdown
 ---
-title: Engineering Quality Strategy
+title: Engineering Capabilities
 status: Accepted
-version: 1.0
+version: 2.0
 owner: Architecture
-last_updated: 2026-07-29
+last_updated: 2026-07-30
 ---
 
-# Engineering Quality Strategy
+# Engineering Capabilities
 
 ## Purpose
 
-The Engineering Quality Strategy defines how Atlas achieves, preserves, and continuously improves Engineering Quality Strategy throughout the software lifecycle.
+Engineering Capabilities define the reusable engineering services provided by the Atlas Developer Foundation.
 
-Engineering Quality Strategy is not the responsibility of a single activity, tool, or team. It emerges from the combined application of sound architecture, disciplined engineering practices, effective governance, shared engineering capabilities, and continuous validation.
+These capabilities establish a shared engineering platform inherited by every bounded context, allowing business modules to focus on domain responsibilities rather than engineering infrastructure.
+
+Engineering Capabilities describe **what the platform provides**, not **how those capabilities are implemented**.
 
 ---
 
 # Mission
 
-Establish a sustainable engineering system that enables Atlas to evolve confidently while maintaining reliability, consistency, maintainability, and architectural integrity.
+Provide reusable engineering capabilities that improve consistency, maintainability, engineering quality, and developer productivity across the Atlas platform.
 
-Quality is a platform capability, not an afterthought.
+Capabilities are implemented once and shared by every bounded context.
 
 ---
 
-# Engineering Quality Model
+# Architectural Position
 
-Atlas achieves Engineering Quality Strategy through multiple complementary capabilities.
+Engineering Capabilities are part of the Developer Foundation.
 
+```text
+Engineering Foundation
+        │
+        ▼
+Developer Foundation
+        │
+        ▼
+Engineering Capabilities
+        │
+        ▼
+Business Modules
 ```
-Engineering Quality Strategy
 
+Business modules consume these capabilities but do not own, duplicate, or redefine them.
 
-├── Governance
+---
+
+# Capability Model
+
+Engineering Capabilities are organized into four capability groups.
+
+```text
+Engineering Capabilities
+
+├── Engineering Support
+│   ├── Configuration
+│   ├── Logging
+│   ├── Shared Engineering Utilities
+│   └── Local Development
 │
-├── Architecture
-│
-├── Shared Engineering Capabilities
+├── Verification
 │   ├── Testing
 │   ├── Validation
+│   └── Test Data Management
+│
+├── Developer Productivity
 │   └── Developer Tooling
 │
-├── Engineering Reviews
-│
-└── Continuous Improvement
+└── Capability Governance
+    └── Capability Evolution
 ```
 
-No single capability guarantees quality.
+Each capability owns a distinct engineering responsibility.
 
-Engineering Quality Strategy is the result of the entire system working together.
-
----
-
-# Quality Objectives
-
-The Engineering Quality Strategy aims to:
-
-- Preserve architectural integrity.
-- Promote consistent engineering practices.
-- Detect issues early.
-- Reduce engineering risk.
-- Enable safe platform evolution.
-- Support maintainable software.
-- Encourage continuous learning and improvement.
+Capabilities collaborate through well-defined boundaries without duplicating responsibilities.
 
 ---
 
-# Quality Pillars
+# Capability Groups
 
-## Governance
+## Engineering Support
 
-Governance establishes the principles and decision-making processes that guide engineering work.
+Engineering Support capabilities provide the shared infrastructure required by engineering teams and platform capabilities.
 
-Examples include:
-
-- Engineering Constitution
-- Architecture Decision Records
-- Architecture Lifecycle
-- Pull Request Governance
-
----
-
-## Architecture
-
-Architecture provides the structural foundation for maintainable software.
-
-Quality begins with well-defined responsibilities, clear boundaries, and deliberate architectural decisions.
+| Capability                   | Responsibility                                      |
+| ---------------------------- | --------------------------------------------------- |
+| Configuration                | Provide standardized configuration management.      |
+| Logging                      | Provide structured engineering logging.             |
+| Shared Engineering Utilities | Provide reusable engineering components.            |
+| Local Development            | Provide a consistent local engineering environment. |
 
 ---
 
-## Standards
+## Verification
 
-Engineering standards reduce unnecessary variation and improve consistency.
+Verification capabilities provide confidence that engineering work satisfies defined expectations.
 
-Standards apply to documentation, repository organization, coding practices, testing, and engineering workflows.
-
----
-
-## Documentation
-
-Documentation is a first-class engineering artifact.
-
-It preserves architectural intent, supports onboarding, enables traceability, and reduces institutional knowledge risk.
-
-Documentation evolves alongside the platform.
+| Capability           | Responsibility                                            |
+| -------------------- | --------------------------------------------------------- |
+| Testing              | Verify software behavior.                                 |
+| Validation           | Verify engineering outcomes and architectural compliance. |
+| Test Data Management | Provide reusable and repeatable engineering test data.    |
 
 ---
 
-## Design
+## Developer Productivity
 
-Design translates approved architecture into implementation-ready specifications.
+Developer Productivity capabilities improve the engineering experience while maintaining consistency across the platform.
 
-Well-defined design reduces ambiguity and improves implementation quality.
+| Capability        | Responsibility                                                 |
+| ----------------- | -------------------------------------------------------------- |
+| Developer Tooling | Provide shared engineering tooling, workflows, and automation. |
 
 ---
 
-## Shared Engineering Capabilities
+## Capability Governance
 
-The Developer Foundation provides shared engineering capabilities that improve consistency and reduce duplication.
+Capability Governance ensures that Engineering Capabilities evolve consistently over time.
 
-Examples include:
+Rather than representing an engineering capability itself, this group defines how capabilities are introduced, refined, and maintained throughout the platform lifecycle.
 
-- Testing
-- Validation
-- Shared utilities
-- Local development support
-- Developer tooling
+---
+
+# Capability Responsibilities
+
+## Configuration
+
+Provides standardized configuration management for Atlas.
+
+Responsibilities include:
+
+- Environment configuration
+- Configuration loading
+- Configuration validation
+- Configuration abstraction
+
+---
+
+## Logging
+
+Provides standardized engineering logging.
+
+Responsibilities include:
+
+- Structured logging
+- Log enrichment
+- Log formatting
+- Logging abstraction
 
 ---
 
 ## Testing
 
-Testing provides continuous verification that the platform behaves as intended.
+Provides reusable capabilities for software verification.
 
-Testing supports engineering confidence but is only one component of overall quality.
+Responsibilities include:
+
+- Shared testing infrastructure
+- Testing environments
+- Testing conventions
+- Integration testing support
+- End-to-end testing support
+
+Testing architecture remains independent of any specific testing framework.
 
 ---
 
 ## Validation
 
-Validation confirms that engineering outcomes satisfy architectural intent, engineering standards, and acceptance criteria.
+Provides reusable validation capabilities that support engineering quality.
 
-Validation includes:
+Responsibilities include:
 
-- Automated verification
-- Architecture validation
-- Documentation validation
-- Engineering review
+- Engineering validation
+- Architectural validation
+- Input validation
+- Shared validation utilities
 
----
-
-## Reviews
-
-Engineering reviews ensure that work is technically sound before becoming part of the accepted platform.
-
-Reviews evaluate:
-
-- Architecture
-- Design
-- Documentation
-- Implementation
-- Risks
-- Maintainability
+Validation verifies that engineering outcomes satisfy defined expectations.
 
 ---
 
-## Continuous Improvement
+## Shared Engineering Utilities
 
-Engineering Quality Strategy evolves over time.
+Provides reusable engineering components shared across multiple capabilities.
 
-Atlas encourages continuous refinement of engineering practices, documentation, tooling, and shared capabilities while preserving architectural consistency.
+Responsibilities include:
 
----
+- Common engineering utilities
+- Shared abstractions
+- Reusable helper components
 
-# Quality Principles
-
-The Engineering Quality Strategy follows these principles.
-
-## Quality by Design
-
-Quality begins during architecture and design rather than after implementation.
+Utilities must remain independent of business-domain knowledge.
 
 ---
 
-## Shared Responsibility
+## Local Development
 
-Engineering Quality Strategy is the responsibility of every contributor.
+Provides the shared capabilities required for a consistent local development experience.
 
-No individual activity owns quality in isolation.
+Responsibilities include:
 
----
+- Local development workflows
+- Local verification
+- Development environment support
+- Developer experience
 
-## Early Feedback
-
-Quality improves when issues are identified as early as possible in the engineering lifecycle.
-
----
-
-## Consistency
-
-Consistent engineering practices produce more predictable and maintainable software.
+Operational setup guidance belongs within developer documentation.
 
 ---
 
-## Continuous Verification
+## Test Data Management
 
-Verification should occur continuously throughout the engineering lifecycle rather than only before release.
+Provides reusable capabilities for managing engineering test data.
 
----
+Responsibilities include:
 
-## Traceability
+- Test fixtures
+- Builders
+- Factories
+- Seed data
+- Scenario data
 
-Engineering decisions should remain traceable through documentation, reviews, and Architecture Decision Records.
-
----
-
-## Sustainable Evolution
-
-Engineering Quality Strategy should enable long-term platform evolution without compromising maintainability.
+Implementation details remain independent of testing frameworks.
 
 ---
 
-# Relationship to the Architecture Lifecycle
+## Developer Tooling
 
-Engineering Quality Strategy spans every phase of the Architecture Lifecycle.
+Provides shared engineering tooling that improves developer productivity.
 
-| Lifecycle Phase | Quality Focus                                      |
-| --------------- | -------------------------------------------------- |
-| Discovery       | Define success and quality objectives.             |
-| Architecture    | Establish architectural integrity.                 |
-| Design          | Produce clear implementation plans.                |
-| Implementation  | Build according to approved designs and standards. |
-| Review          | Validate quality through engineering review.       |
-| Merge           | Preserve the accepted engineering baseline.        |
+Responsibilities include:
 
-Quality is a continuous concern rather than a final checkpoint.
+- Engineering tooling
+- Developer automation
+- Repository workflows
+- Tool integration
+
+Specific tools are implementation decisions and are not defined by this architecture.
 
 ---
 
-# Success Criteria
+# Capability Principles
 
-The Engineering Quality Strategy is successful when:
+Engineering Capabilities follow these principles.
 
-- Architectural consistency is preserved.
-- Engineering standards are followed consistently.
-- Shared engineering capabilities reduce duplication.
-- Documentation remains accurate and current.
-- Testing provides meaningful engineering confidence.
-- Reviews identify issues before integration.
-- Atlas evolves safely over time.
+## Shared by Default
+
+Capabilities are designed for platform-wide reuse.
+
+---
+
+## Single Responsibility
+
+Each capability owns one clearly defined engineering responsibility.
+
+Responsibilities should not overlap.
+
+---
+
+## Independent of Business Domains
+
+Capabilities remain completely independent of business logic and domain concepts.
+
+---
+
+## Architecture Before Technology
+
+Capabilities describe engineering responsibilities rather than implementation technologies.
+
+Technology choices belong to the Design and Implementation phases.
+
+---
+
+## Minimal Public Surface
+
+Capabilities expose only their intentional public APIs while hiding implementation details.
+
+---
+
+## Extensible
+
+New capabilities may be introduced without disrupting existing capabilities or business modules.
+
+---
+
+## Consistent
+
+Capabilities establish common engineering practices across the platform.
+
+---
+
+# Capability Boundaries
+
+Engineering Capabilities define shared engineering responsibilities.
+
+They do not define:
+
+- Business rules
+- Product workflows
+- Domain models
+- User-facing functionality
+- Module-specific engineering solutions
+- Implementation technologies
+
+These concerns remain within their respective architectural boundaries.
+
+---
+
+# Capability Evolution
+
+Engineering Capabilities evolve alongside Atlas.
+
+New capabilities should:
+
+- Solve demonstrated engineering needs.
+- Preserve clear ownership.
+- Avoid overlapping responsibilities.
+- Remain reusable across bounded contexts.
+- Align with the Engineering Constitution.
+
+Capabilities should be introduced only when justified by architectural or engineering complexity.
 
 ---
 
 # Governance
 
-The Engineering Quality Strategy is governed by:
+Engineering Capabilities are governed by:
 
 - Engineering Constitution
+- Engineering Quality Strategy
 - Architecture Lifecycle
-- Architecture Decision Records
-- Engineering Reviews
+- Architecture Decision Records (ADRs)
 
-Changes to the quality strategy should strengthen the engineering system while preserving architectural consistency.
+These documents define how capabilities are designed, implemented, verified, and evolved.
 
 ---
 
-# Relationship to Other Documents
+# Relationship to Other Documentation
 
 This document complements:
 
-- Engineering Constitution
-- Architecture Lifecycle
 - Developer Foundation
-- Engineering Capabilities
+- Engineering Constitution
+- Engineering Quality Strategy
 - Testing Architecture
 - Testing Philosophy
+- Architecture Lifecycle
 
-Together these documents define the engineering system that supports the long-term evolution of Atlas.
+Together these documents define the shared engineering platform that supports Atlas development.
 
 ---
 
 # Summary
 
-The Engineering Quality Strategy defines how Atlas achieves engineering quality through governance, architecture, standards, documentation, shared engineering capabilities, testing, validation, reviews, and continuous improvement.
+Engineering Capabilities define the canonical shared engineering services provided by the Atlas Developer Foundation.
 
-Rather than relying on individual activities or tools, Atlas treats quality as an emergent property of a disciplined engineering system.
+By establishing reusable capabilities with clear ownership and architectural boundaries, Atlas enables every bounded context to inherit a consistent engineering platform while remaining focused on business-domain responsibilities.
 ````

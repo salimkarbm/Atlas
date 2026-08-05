@@ -11,9 +11,9 @@ last_updated: 2026-07-29
 
 ## Purpose
 
-The Engineering Capabilities define the shared engineering services provided by the Developer Foundation.
+Engineering Capabilities define the canonical reusable engineering services provided by the Atlas Developer Foundation.
 
-These capabilities establish a common engineering platform that every Atlas bounded context inherits, allowing business modules to focus on domain logic rather than engineering infrastructure.
+They describe what engineering capabilities Atlas provides and the responsibilities of those capabilities, while remaining independent of implementation technologies and physical repository organization.
 
 Engineering Capabilities describe **what the platform provides**, not **how those capabilities are implemented**.
 
@@ -48,9 +48,26 @@ Business modules consume these capabilities but do not own or redefine them.
 
 ---
 
+# Implementation Model
+
+Engineering Capabilities define architectural responsibilities rather than physical source-code organization.
+
+The Developer Foundation owns the capabilities.
+
+The Atlas repository architecture determines where each capability is implemented.
+
+Accordingly:
+
+- capabilities do not imply dedicated source-code layers;
+- implementation follows architectural layer responsibilities;
+- capability ownership is distinct from implementation ownership.
+
+This separation allows Atlas to preserve both architectural clarity and repository consistency.
+---
+
 # Capability Model
 
-Engineering Capabilities are organized into four capability groups.
+The capability model is logical rather than physical. It organizes engineering responsibilities and should not be interpreted as the repository structure.
 
 ## Verification
 
@@ -157,6 +174,25 @@ Quality is achieved through architecture, engineering practices, validation, and
 
 Engineering Capabilities follow these principles.
 
+# Repository Mapping
+
+Engineering Capabilities are implemented within the existing Atlas repository architecture.
+
+Each capability is implemented by the architectural layer responsible for the concern.
+
+Typical examples include:
+
+| Capability        | Typical Implementation                  |
+| ----------------- | --------------------------------------- |
+| Configuration     | Application layer                       |
+| Logging           | Infrastructure layer                    |
+| Testing           | Test infrastructure                     |
+| Validation        | Distributed across architectural layers |
+| Developer Tooling | Repository tooling                      |
+| Local Development | Repository infrastructure               |
+
+These examples illustrate implementation responsibility rather than prescribing repository structure.
+
 ## Shared by Default
 
 Capabilities are designed for platform-wide reuse.
@@ -237,4 +273,6 @@ Together these documents define the engineering capabilities provided by the Dev
 Engineering Capabilities define the shared engineering services that support every Atlas bounded context.
 
 They provide reusable engineering capabilities that improve consistency, reduce duplication, and enable business modules to focus on domain responsibilities while inheriting a common engineering platform.
+
+Engineering Capabilities define what engineering services Atlas provides, while the Design and Implementation phases determine how and where those services are realized within the repository architecture.
 ````

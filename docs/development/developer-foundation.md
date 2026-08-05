@@ -1,10 +1,9 @@
-````markdown
 ---
 title: Developer Foundation
 status: Accepted
-version: 1.0
+version: 2.0
 owner: Architecture
-last_updated: 2026-07-29
+last_updated: 2026-07-31
 ---
 
 # Developer Foundation
@@ -13,52 +12,53 @@ last_updated: 2026-07-29
 
 The Developer Foundation defines the shared engineering capabilities that support the development of every Atlas bounded context.
 
-It establishes a common engineering platform that enables teams to build, test, validate, and maintain software consistently throughout the lifetime of the Atlas platform.
+It establishes the architectural model for the reusable engineering platform that enables teams to build, test, validate, and maintain software consistently throughout the lifetime of Atlas.
 
-The Developer Foundation is part of the Engineering Architecture and exists independently of any specific business domain.
+The Developer Foundation is part of the Engineering Architecture and exists independently of any specific business domain or implementation technology.
 
 ---
 
 # Mission
 
-Provide every bounded context with a consistent, reusable, and well-governed engineering foundation that promotes quality, maintainability, and developer productivity.
+Provide every bounded context with a consistent, reusable, and well-governed engineering foundation that promotes engineering quality, maintainability, and developer productivity.
 
-Rather than allowing individual modules to establish their own engineering infrastructure, Atlas provides shared capabilities that can be adopted across the platform.
+Rather than allowing individual modules to establish their own engineering infrastructure, Atlas defines shared engineering capabilities that can be adopted consistently across the platform.
 
 ---
 
 # Architectural Responsibility
 
-The Developer Foundation is responsible for defining the engineering capabilities that are common to all software developed within Atlas.
+The Developer Foundation defines the engineering capabilities that are shared across Atlas.
 
 These responsibilities include:
 
-- Shared engineering capabilities
-- Testing architecture
-- Engineering quality strategy
-- Engineering validation strategy
-- Shared developer experience
-- Engineering conventions
+- Engineering Capabilities
+- Testing Architecture
+- Validation Architecture
+- Engineering Quality Strategy
+- Shared Developer Experience
+- Engineering Conventions
 
-The Developer Foundation does not implement these capabilities; it defines the architectural model that guides their design and implementation.
+The Developer Foundation defines the architectural model that guides the design, implementation, and evolution of these capabilities.
+
+It does not prescribe implementation technologies or physical source-code organization.
 
 ---
 
 # Scope
 
-The Developer Foundation governs engineering capabilities that are shared across the platform.
+The Developer Foundation governs engineering capabilities shared across the platform.
 
 Examples include:
 
 - Testing
 - Validation
-- Shared engineering utilities
-- Test data management
-- Local development support
-- Engineering tooling
-- Quality practices
+- Shared Engineering Utilities
+- Test Data Management
+- Local Development
+- Developer Tooling
 
-The Developer Foundation intentionally avoids introducing business-specific responsibilities.
+Each capability exists to improve engineering consistency without introducing business-domain responsibilities.
 
 ---
 
@@ -68,91 +68,147 @@ The following concerns are outside the scope of the Developer Foundation:
 
 - Business domains
 - Domain models
-- Business workflows
-- Product capabilities
+- Product workflows
+- Business capabilities
 - Authorization rules
 - Persistence models
 - User interfaces
 
-These responsibilities belong to the Platform Architecture and the corresponding bounded contexts.
+These responsibilities belong to the Platform Foundation and the corresponding bounded contexts.
 
 ---
 
 # Architectural Position
 
-The Developer Foundation extends the Engineering Foundation.
+The Developer Foundation extends the Engineering Foundation by defining the reusable engineering capabilities available throughout Atlas.
 
-```
+```text
 Engineering Foundation
         │
         ▼
 Developer Foundation
         │
         ▼
+Engineering Capabilities
+        │
+        ▼
+Repository Architecture
+(application / core / infrastructure / modules)
+        │
+        ▼
 Business Modules
 ```
 
-Every future bounded context inherits the Developer Foundation before introducing business-specific capabilities.
+The Engineering Foundation establishes governance.
+
+The Developer Foundation establishes reusable engineering capabilities.
+
+The repository architecture determines where those capabilities are implemented.
+
+Business modules consume those capabilities while remaining focused on business responsibilities.
 
 ---
 
-Engineering Architecture
-│
-├───────────────┐
-│ │
-Engineering Developer
-Foundation Foundation
-│ │
-Governance Engineering Capabilities
-Lifecycle │
-Standards │
-Repository ├───────────────┐
-Conventions │ │
-Testing Validation
-│
-Engineering Quality Strategy
-│
-▼
-Business Modules
+# Capability Ownership
+
+The Developer Foundation owns engineering capabilities.
+
+Capability ownership defines:
+
+- architectural responsibility;
+- capability boundaries;
+- engineering intent;
+- long-term evolution.
+
+Capability ownership does **not** determine where source code is located.
+
+---
+
+# Implementation Ownership
+
+Implementation ownership belongs to the architectural layer responsible for the concern being implemented.
+
+For example:
+
+| Capability        | Typical Implementation                                |
+| ----------------- | ----------------------------------------------------- |
+| Configuration     | `application/`                                        |
+| Logging           | `infrastructure/`                                     |
+| Testing           | Test infrastructure                                   |
+| Validation        | Distributed according to architectural responsibility |
+| Developer Tooling | Repository tooling and automation                     |
+| Local Development | Repository infrastructure                             |
+
+This separation preserves both architectural clarity and repository consistency.
+
+---
+
+# Implementation Mapping
+
+The Developer Foundation is an architectural capability layer—not a physical source-code layer.
+
+Developer Foundation capabilities are implemented within the established Atlas repository structure according to architectural responsibility.
+
+Implementation location is determined by layer ownership rather than capability ownership.
+
+This principle applies to every current and future engineering capability introduced by Atlas.
+
+---
 
 # Relationship to the Engineering Foundation
 
 The Engineering Foundation establishes how Atlas is governed.
 
-The Developer Foundation establishes the engineering capabilities available within that governance model.
+The Developer Foundation establishes the reusable engineering capabilities available within that governance model.
 
 The Engineering Foundation provides the rules.
 
-The Developer Foundation provides the reusable capabilities.
+The Developer Foundation provides the capabilities.
 
 ---
 
 # Relationship to the Platform Foundation
 
-The Platform Foundation defines the architectural model of Atlas.
+The Platform Foundation defines the business architecture of Atlas.
 
-The Developer Foundation provides the engineering capabilities used to implement that model.
+The Developer Foundation provides the engineering capabilities used to implement that architecture.
 
 The two foundations are complementary.
 
-| Engineering                     | Platform              |
-| ------------------------------- | --------------------- |
-| Shared engineering capabilities | Business architecture |
-| Engineering Quality Strategy    | Domain model          |
-| Validation strategy             | Platform capabilities |
-| Testing architecture            | Business concepts     |
+| Developer Foundation     | Platform Foundation   |
+| ------------------------ | --------------------- |
+| Engineering capabilities | Business architecture |
+| Engineering quality      | Domain model          |
+| Testing                  | Business capabilities |
+| Validation               | Bounded contexts      |
+| Developer experience     | Platform behavior     |
 
 Neither foundation replaces the other.
 
 ---
 
+# Relationship to Engineering Capabilities
+
+The Developer Foundation defines the architectural model for shared engineering capabilities.
+
+The Engineering Capabilities document defines the individual capabilities provided by that model.
+
+Together these documents establish the reusable engineering platform inherited by every Atlas bounded context.
+
+---
+
 # Relationship to Business Modules
 
-Every bounded context is expected to adopt the engineering capabilities defined by the Developer Foundation..
+Every bounded context adopts the engineering capabilities defined by the Developer Foundation.
 
-Business modules consume the engineering capabilities provided by the Developer Foundation rather than establishing independent engineering infrastructure.
+Business modules consume shared engineering capabilities rather than creating independent engineering infrastructure.
 
-This approach promotes consistency, reduces duplication, and simplifies long-term maintenance.
+This approach:
+
+- promotes consistency;
+- reduces duplication;
+- simplifies maintenance;
+- enables sustainable platform evolution.
 
 ---
 
@@ -162,7 +218,17 @@ The Developer Foundation follows these principles.
 
 ## Shared Before Specific
 
-Shared engineering capabilities are established before introducing business-specific solutions.
+Shared engineering capabilities should be established before introducing module-specific engineering solutions.
+
+---
+
+## Separation of Capability and Implementation
+
+Capability ownership is independent of implementation ownership.
+
+Capabilities define architectural responsibilities.
+
+Architectural layers determine implementation placement.
 
 ---
 
@@ -176,13 +242,13 @@ Engineering capabilities should be reused across the platform whenever practical
 
 Engineering capabilities remain independent of business concepts.
 
-Business knowledge belongs exclusively within the Platform Architecture and bounded contexts.
+Business knowledge belongs exclusively within the Platform Foundation and bounded contexts.
 
 ---
 
 ## Quality by Design
 
-Quality is established through shared engineering capabilities rather than isolated implementation decisions.
+Engineering quality emerges through shared capabilities, governance, and disciplined engineering practices rather than isolated implementation decisions.
 
 ---
 
@@ -194,11 +260,21 @@ The Developer Foundation evolves through the Engineering Constitution, Architect
 
 # Architectural Boundaries
 
-The Developer Foundation defines architecture.
+The Developer Foundation defines:
 
-It does not define implementation.
+- engineering capabilities;
+- capability boundaries;
+- architectural responsibilities;
+- engineering principles.
 
-Implementation decisions—including framework selection, project configuration, tooling, and source code—belong to later phases of the Architecture Lifecycle.
+It does not define:
+
+- framework selection;
+- source-code organization;
+- implementation technologies;
+- module internals.
+
+These concerns belong to the Design and Implementation phases.
 
 ---
 
@@ -206,24 +282,24 @@ Implementation decisions—including framework selection, project configuration,
 
 The Developer Foundation is successful when:
 
-- Every bounded context is expected to adopt the engineering capabilities defined by the Developer Foundation.
-- Engineering practices remain consistent across the platform.
-- Shared engineering infrastructure eliminates unnecessary duplication.
-- Engineering Quality Strategy improves through common standards.
-- New capabilities can be introduced without disrupting existing modules.
+- every bounded context adopts the shared engineering capabilities;
+- engineering practices remain consistent across the platform;
+- capabilities remain independent of business domains;
+- implementation follows established architectural boundaries;
+- new capabilities can be introduced without disrupting existing modules.
 
 ---
 
 # Future Capability Areas
 
-The Developer Foundation is expected to grow through additional architectural capabilities, including:
+The Developer Foundation is expected to evolve through additional engineering capabilities as Atlas matures.
 
-- Engineering Capabilities
-- Testing Architecture
-- Testing Philosophy
-- Engineering Quality Strategy
+Future capabilities should:
 
-Future capabilities should extend the existing architecture rather than introduce competing engineering approaches.
+- address demonstrated engineering needs;
+- preserve clear architectural ownership;
+- align with existing capability boundaries;
+- extend the existing engineering platform rather than introduce competing approaches.
 
 ---
 
@@ -233,14 +309,22 @@ The Developer Foundation is governed by:
 
 - Engineering Constitution
 - Architecture Lifecycle
+- Engineering Quality Strategy
 - Architecture Decision Records
 - Engineering Reviews
 
-Changes to the Developer Foundation should preserve architectural consistency and support the long-term evolution of the platform.
+Changes to the Developer Foundation should strengthen the engineering platform while preserving architectural consistency.
+
+---
 
 # Summary
 
-The Developer Foundation defines the shared engineering architecture that every Atlas bounded context inherits.
+The Developer Foundation defines the architectural model for the shared engineering capabilities inherited by every Atlas bounded context.
 
-By providing common engineering capabilities independent of business domains, it enables consistent development, improves maintainability, reduces duplication, and ensures that Engineering Quality Strategy scales alongside the platform.
-````
+By separating capability ownership from implementation ownership, Atlas preserves a clean engineering architecture while allowing each capability to be implemented within the architectural layer best suited to its responsibility.
+
+This approach enables consistent engineering practices, sustainable platform evolution, and a reusable engineering platform that remains independent of business-domain concerns.
+
+```
+
+```

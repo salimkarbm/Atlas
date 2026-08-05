@@ -34,7 +34,7 @@ export default tseslint.config(
     ],
     extends: [tseslint.configs.disableTypeChecked],
     languageOptions: {
-       parser: tseslint.parser,
+      parser: tseslint.parser,
       globals: { ...globals.node },
     },
   },
@@ -48,7 +48,7 @@ export default tseslint.config(
           project: './tsconfig.eslint.json',
         },
       },
-       parser: tseslint.parser,
+      parser: tseslint.parser,
       globals: {
         ...globals.node,
       },

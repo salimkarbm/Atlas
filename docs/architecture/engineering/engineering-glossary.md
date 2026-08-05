@@ -1,7 +1,7 @@
 # Atlas Engineering Glossary
 
-```markdown
 ---
+
 title: Atlas Engineering Glossary
 status: Accepted
 version: 1.0
@@ -110,4 +110,7 @@ The glossary should remain concise, authoritative, and free of duplicate or conf
 ## Platform Architecture
 
 - Platform Domain Glossary
+
+```
+
 ```

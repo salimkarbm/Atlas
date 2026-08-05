@@ -12,7 +12,7 @@ export default defineConfig({
 
     restoreMocks: true,
 
-    globalSetup: ['tests/setup/global-setup.ts'],
+    globalSetup: ['tests/shared/setup/global-setup.ts'],
 
     coverage: {
       provider: 'v8',

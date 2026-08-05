@@ -1,9 +1,9 @@
 ---
 title: Atlas Roadmap
 status: Living
-version: 1.0
+version: 1.1
 owner: Product & Architecture
-last_updated: 2026-07-23
+last_updated: 2026-07-31
 ---
 
 # Atlas Roadmap
@@ -85,13 +85,13 @@ See:
 Build the engineering capabilities that every business module depends upon.
 
 **Objective**
-Provide the shared tooling, conventions, and infrastructure required to develop, test, and maintain Atlas consistently.
+Provide the shared engineering capabilities that enable consistent development, testing, validation, developer productivity, and long-term maintainability across every Atlas bounded context.
 
 This milestone is about developer experience, Engineering Quality Strategy, and productivity—not business functionality
 
 **Status**
 
-🟢 Planned
+🚧 In Progress
 
 ---
 
@@ -107,26 +107,18 @@ Future milestones will be introduced only after the successful completion and re
 
 # Current Focus
 
-Current Milestone
-
-Milestone 3
-
-Engineering Capabilities
-
-Next Pull Request
-
-PR-0008.0
-
-Engineering Capabilities
-
-```
+| Item                 | Value                                    |
+| -------------------- | ---------------------------------------- |
+| Current Milestone    | Milestone 3 — Developer Foundation       |
+| Current Pull Request | PR-0008.2.5 — Validation Foundation      |
+| Current Activity     | Task 8.2.5.4 — Core Validation Contracts |
 
 ---
 
 ## Recently Completed
 
-- Engineering Foundation
-- Platform Foundation
+- Milestone 1 — Engineering Foundation
+- Milestone 2 — Platform Architecture
 - Foundational Architecture Decision Records
 - Architecture Governance
 
@@ -137,10 +129,10 @@ Engineering Capabilities
 Engineering Foundation
 │
 ▼
-Platform Architecture
+Platform Foundation
 │
 ▼
-Engineering Capabilities
+Developer Foundation
 │
 ▼
 Core Platform
@@ -167,8 +159,7 @@ Milestones should conclude with an engineering review before subsequent architec
 
 The roadmap reflects the accepted strategic direction of Atlas and should remain consistent with the Engineering Constitution and other canonical project documentation.
 
-# Milestone 1
-
+Milestone 1
 Engineering Foundation
 │
 ▼
@@ -177,7 +168,7 @@ Platform Architecture
 │
 ▼
 Milestone 3
-Engineering Capabilities
+Developer Foundation
 │
 ▼
 Milestone 4
@@ -192,4 +183,13 @@ The roadmap defines _what_ Atlas intends to accomplish and _when_ major engineer
 It intentionally does not define _how_ those phases are implemented. Detailed planning belongs to milestone documents, architectural decisions belong to ADRs, and implementation details belong to pull requests.
 
 This separation of responsibilities ensures that the roadmap remains stable, concise, and focused on the long-term evolution of the platform.
-```
+
+---
+
+## Milestone Documentation
+
+| Milestone   | Document                               |
+| ----------- | -------------------------------------- |
+| Milestone 1 | docs/product/milestones/milestone-1.md |
+| Milestone 2 | docs/product/milestones/milestone-2.md |
+| Milestone 3 | docs/product/milestones/milestone-3.md |
