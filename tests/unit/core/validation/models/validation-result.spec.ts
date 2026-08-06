@@ -1,39 +1,6 @@
 import { describe, expect, it } from 'vitest';
-
-import { InvariantViolationError } from '../../../../../src/Core/errors';
 import { ValidationIssue, ValidationResult } from '../../../../../src/Core/validations';
 import { expectInvariantViolation } from '../../../../shared/helpers';
-
-// function expectInvariantViolation(
-//   act: () => unknown,
-//   expectedInvariant: string,
-//   expectedMessage: string,
-// ): void {
-//   expect(act).toThrow(InvariantViolationError);
-
-//   try {
-//     act();
-
-//     throw new Error(
-//       'Expected InvariantViolationError to be thrown.',
-//     );
-//   } catch (error) {
-//     expect(error).toBeInstanceOf(
-//       InvariantViolationError,
-//     );
-
-//     const invariantError =
-//       error as InvariantViolationError;
-
-//     expect(invariantError.invariant).toBe(
-//       expectedInvariant,
-//     );
-
-//     expect(invariantError.message).toBe(
-//       expectedMessage,
-//     );
-//   }
-// }
 
 describe('ValidationResult', () => {
   const issue = ValidationIssue.of('USER.INVALID', 'User is invalid.');
@@ -123,6 +90,16 @@ describe('ValidationResult', () => {
       expect(result.issues).toHaveLength(1);
     });
 
+    it('prevents mutation of the singleton issue collection', () => {
+      const result = ValidationResult.success();
+
+      expect(() => {
+        (result.issues as ValidationIssue[]).push(issue);
+      }).toThrow();
+
+      expect(result.issues).toHaveLength(0);
+    });
+
     it('prevents mutation of exposed issues', () => {
       const result = ValidationResult.failure(issue);
 
@@ -141,6 +118,15 @@ describe('ValidationResult', () => {
       const result = ValidationResult.failure(issue);
 
       expect(result.issues[0]).toBe(issue);
+    });
+    it('preserves the supplied issue order', () => {
+      const first = ValidationIssue.of('USER.INVALID', 'User is invalid.');
+
+      const second = ValidationIssue.of('USER.EMAIL', 'Email is invalid.');
+
+      const result = ValidationResult.failure(first, second);
+
+      expect(result.issues).toEqual([first, second]);
     });
   });
 
