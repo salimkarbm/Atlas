@@ -6,7 +6,6 @@ describe('ValidationContext', () => {
   describe('Construction', () => {
     it('creates an empty context', () => {
       const context = ValidationContext.of();
-
       expect(context.attributes).toEqual({});
     });
 
@@ -92,7 +91,7 @@ describe('ValidationContext', () => {
       const context = ValidationContext.of(attributes);
 
       attributes.operation = 'update';
-
+      expect(context.attributes).not.toBe(attributes);
       expect(context.attributes).toEqual({
         operation: 'create',
       });
@@ -148,6 +147,9 @@ describe('ValidationContext', () => {
           operation: 'create',
         }),
       );
+    });
+    it('shares the immutable empty attributes object', () => {
+      expect(ValidationContext.of().attributes).toBe(ValidationContext.of().attributes);
     });
   });
 
