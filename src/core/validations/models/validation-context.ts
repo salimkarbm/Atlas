@@ -1,9 +1,7 @@
-import { assertPlainObject } from '../../internal/assert';
+import { assertPlainObject } from '../../internal';
 
 export class ValidationContext {
-  private static readonly EMPTY_ATTRIBUTES = Object.freeze({});
-
-  private static readonly EMPTY = new ValidationContext(ValidationContext.EMPTY_ATTRIBUTES);
+  private static readonly EMPTY = new ValidationContext({});
 
   private readonly _attributes: Readonly<Record<string, unknown>>;
 
@@ -14,19 +12,17 @@ export class ValidationContext {
   }
 
   public static of(attributes?: Readonly<Record<string, unknown>>): ValidationContext {
-    const normalizedAttributes = attributes ?? ValidationContext.EMPTY_ATTRIBUTES;
-
-    if (normalizedAttributes === ValidationContext.EMPTY_ATTRIBUTES) {
+    if (attributes == undefined) {
       return ValidationContext.EMPTY;
     }
 
     assertPlainObject(
-      normalizedAttributes,
+      attributes,
       'ValidationContext.attributes',
       'Validation context attributes must be a plain object.',
     );
 
-    return new ValidationContext(normalizedAttributes);
+    return new ValidationContext(attributes);
   }
 
   public get attributes(): Readonly<Record<string, unknown>> {
