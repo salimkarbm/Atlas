@@ -1,6 +1,3 @@
-# Epic Template
-
-```markdown
 ---
 title: EPIC-XXXX - <Epic Name>
 status: Planned
@@ -80,4 +77,7 @@ List any required milestones, epics, ADRs, or infrastructure that must exist bef
 - Milestone
 - ADRs
 - Engineering Constitution
+
+```
+
 ```

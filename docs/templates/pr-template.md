@@ -1,6 +1,3 @@
-# Pull Request Template
-
-```markdown
 ---
 title: PR-XXXX — <Pull Request Title>
 status: Draft
@@ -333,4 +330,7 @@ This pull request is ready to merge when:
 - Platform Architecture
 - Engineering Standards
 - Repository Conventions
+
+```
+
 ```

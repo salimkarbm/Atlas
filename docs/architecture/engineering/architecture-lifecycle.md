@@ -1,4 +1,3 @@
-````markdown
 ---
 title: Atlas Architecture Lifecycle
 status: Accepted
@@ -303,4 +302,7 @@ A pull request should not advance to the next phase until the objectives of the 
 The Atlas Architecture Lifecycle provides a disciplined, repeatable approach to engineering work.
 
 By separating Discovery, Architecture, Design, Implementation, Review, and Merge into distinct phases, Atlas promotes thoughtful decision-making, preserves architectural integrity, and ensures that the platform evolves in a consistent and maintainable manner.
-````
+
+```
+
+```

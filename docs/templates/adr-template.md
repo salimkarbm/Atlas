@@ -1,6 +1,3 @@
-# ADR Template
-
-```markdown
 ---
 title: ADR-XXXX - <Decision Title>
 status: Proposed
@@ -112,4 +109,7 @@ Reviewed By:
 Decision Date:
 
 Approval Status:
+
+```
+
 ```

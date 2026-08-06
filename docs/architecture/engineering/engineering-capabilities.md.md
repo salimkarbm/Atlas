@@ -1,4 +1,3 @@
-````markdown
 ---
 title: Engineering Capabilities
 status: Accepted
@@ -275,4 +274,7 @@ Engineering Capabilities define the shared engineering services that support eve
 They provide reusable engineering capabilities that improve consistency, reduce duplication, and enable business modules to focus on domain responsibilities while inheriting a common engineering platform.
 
 Engineering Capabilities define what engineering services Atlas provides, while the Design and Implementation phases determine how and where those services are realized within the repository architecture.
-````
+
+```
+
+```

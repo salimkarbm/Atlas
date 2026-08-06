@@ -1,7 +1,4 @@
-# Atlas Engineering Glossary
-
 ---
-
 title: Atlas Engineering Glossary
 status: Accepted
 version: 1.0

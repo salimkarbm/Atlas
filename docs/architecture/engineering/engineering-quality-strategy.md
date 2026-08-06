@@ -1,4 +1,3 @@
-````markdown
 ---
 title: Engineering Capabilities
 status: Accepted
@@ -359,4 +358,7 @@ Together these documents define the shared engineering platform that supports At
 Engineering Capabilities define the canonical shared engineering services provided by the Atlas Developer Foundation.
 
 By establishing reusable capabilities with clear ownership and architectural boundaries, Atlas enables every bounded context to inherit a consistent engineering platform while remaining focused on business-domain responsibilities.
-````
+
+```
+
+```

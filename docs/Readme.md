@@ -1,4 +1,3 @@
-````markdown
 ---
 title: Atlas Documentation
 status: Living
@@ -347,4 +346,7 @@ Atlas is being developed as a long-lived software platform.
 Its documentation exists to preserve engineering knowledge, support architectural evolution, and provide future contributors with a complete understanding of the platform's intent, structure, and direction.
 
 Every document contributes to that mission.
-````
+
+```
+
+```

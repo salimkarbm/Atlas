@@ -1,4 +1,3 @@
-````markdown
 ---
 title: Contributing Guide
 status: Accepted
@@ -227,4 +226,7 @@ If conflicts arise, the Engineering Constitution takes precedence.
 This Contributing Guide defines the standard engineering workflow for Atlas contributors.
 
 By following these practices, contributors help preserve architectural consistency, maintain engineering quality, and enable the long-term evolution of the platform.
-````
+
+```
+
+```
