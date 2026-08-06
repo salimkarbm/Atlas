@@ -1,29 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
-import { InvariantViolationError } from '../../../../../src/Core/errors';
+import { expectInvariantViolation } from '../../../../shared/helpers';
 import { assertNonEmptyString } from '../../../../../src/Core/internal';
-
-function expectInvariantViolation(
-  act: () => unknown,
-  expectedInvariant: string,
-  expectedMessage: string,
-): void {
-  expect(act).toThrow(InvariantViolationError);
-
-  try {
-    act();
-
-    throw new Error('Expected InvariantViolationError to be thrown.');
-  } catch (error) {
-    expect(error).toBeInstanceOf(InvariantViolationError);
-
-    const invariantError = error as InvariantViolationError;
-
-    expect(invariantError.invariant).toBe(expectedInvariant);
-
-    expect(invariantError.message).toBe(expectedMessage);
-  }
-}
 
 describe('assertNonEmptyString', () => {
   const invariant = 'Test.string';
@@ -35,8 +13,16 @@ describe('assertNonEmptyString', () => {
       expect(assertNonEmptyString('Create', invariant, violationMessage)).toBe('Create');
     });
 
-    it('returns a trimmed string', () => {
-      expect(assertNonEmptyString('  Create  ', invariant, violationMessage)).toBe('Create');
+    it('trims leading whitespace', () => {
+      expect(assertNonEmptyString('   Create', invariant, violationMessage)).toBe('Create');
+    });
+
+    it('trims trailing whitespace', () => {
+      expect(assertNonEmptyString('Create   ', invariant, violationMessage)).toBe('Create');
+    });
+
+    it('trims leading and trailing whitespace', () => {
+      expect(assertNonEmptyString('   Create   ', invariant, violationMessage)).toBe('Create');
     });
 
     it('preserves internal whitespace', () => {
@@ -95,9 +81,41 @@ describe('assertNonEmptyString', () => {
       );
     });
 
+    it('rejects Date instances', () => {
+      expectInvariantViolation(
+        () => assertNonEmptyString(new Date(), invariant, violationMessage),
+        invariant,
+        violationMessage,
+      );
+    });
+
+    it('rejects Map instances', () => {
+      expectInvariantViolation(
+        () => assertNonEmptyString(new Map(), invariant, violationMessage),
+        invariant,
+        violationMessage,
+      );
+    });
+
+    it('rejects Set instances', () => {
+      expectInvariantViolation(
+        () => assertNonEmptyString(new Set(), invariant, violationMessage),
+        invariant,
+        violationMessage,
+      );
+    });
+
     it('rejects functions', () => {
       expectInvariantViolation(
         () => assertNonEmptyString(() => {}, invariant, violationMessage),
+        invariant,
+        violationMessage,
+      );
+    });
+
+    it('rejects String object instances', () => {
+      expectInvariantViolation(
+        () => assertNonEmptyString(new String('Create'), invariant, violationMessage),
         invariant,
         violationMessage,
       );
@@ -129,6 +147,12 @@ describe('assertNonEmptyString', () => {
 
     it('returns the same string when already normalized', () => {
       expect(assertNonEmptyString('Delete', invariant, violationMessage)).toBe('Delete');
+    });
+
+    it('returns a primitive string', () => {
+      const value = assertNonEmptyString('Create', invariant, violationMessage);
+
+      expect(typeof value).toBe('string');
     });
   });
 });

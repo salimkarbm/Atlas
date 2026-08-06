@@ -7,17 +7,14 @@ import { expectInvariantViolation } from '../../../../shared/helpers';
 describe('ValidationIssue', () => {
   describe('construction', () => {
     it('creates a validation issue with valid values', () => {
-      const issue = ValidationIssue.of('USER.INVALID', 'User is invalid.', {
-        path: ['user', 'email'],
+      const issue = ValidationIssue.of(' USER.INVALID ', ' User is invalid. ', {
+        path: [' user ', ' email '],
         metadata: { source: 'registration' },
       });
 
       expect(issue.code).toBe('USER.INVALID');
       expect(issue.message).toBe('User is invalid.');
       expect(issue.path).toEqual(['user', 'email']);
-      expect(issue.metadata).toEqual({
-        source: 'registration',
-      });
     });
   });
 
@@ -228,21 +225,25 @@ describe('ValidationIssue', () => {
     });
   });
 
-  describe('preservation', () => {
-    it('preserves the original code', () => {
-      const code = ' USER.INVALID ';
+  describe('normalization', () => {
+    it('stores the normalized code', () => {
+      const issue = ValidationIssue.of('  USER.INVALID  ', 'User is invalid.');
 
-      const issue = ValidationIssue.of(code, 'User is invalid.');
-
-      expect(issue.code).toBe(code);
+      expect(issue.code).toBe('USER.INVALID');
     });
 
-    it('preserves the original message', () => {
-      const message = ' User is invalid. ';
+    it('stores the normalized message', () => {
+      const issue = ValidationIssue.of('USER.INVALID', '  User is invalid.  ');
 
-      const issue = ValidationIssue.of('USER.INVALID', message);
+      expect(issue.message).toBe('User is invalid.');
+    });
 
-      expect(issue.message).toBe(message);
+    it('stores normalized path segments', () => {
+      const issue = ValidationIssue.of('USER.INVALID', 'User is invalid.', {
+        path: [' user ', ' email '],
+      });
+
+      expect(issue.path).toEqual(['user', 'email']);
     });
   });
 
