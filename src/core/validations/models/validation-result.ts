@@ -2,6 +2,13 @@ import { InvariantViolationError } from '../../../Core/errors';
 
 import { ValidationIssue } from './validation-issue';
 
+/**
+ * Represents the result of a validation operation, indicating whether the validation was successful or failed.
+ *
+ * A ValidationResult is an immutable value object that encapsulates the outcome of a validation process.
+ * It provides information about the validity of the data and any associated validation issues.
+ */
+
 export class ValidationResult {
   private static readonly SUCCESS = new ValidationResult(true, []);
 
