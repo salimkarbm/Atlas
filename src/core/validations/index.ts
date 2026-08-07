@@ -1,2 +1,2 @@
 export * from './models';
-export * from './interfaces';
+export type { Validator } from './interfaces';
