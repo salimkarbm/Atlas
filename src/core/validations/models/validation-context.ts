@@ -1,5 +1,17 @@
 import { assertPlainObject } from '../../internal';
 
+/**
+ * Represents the context of a validation operation.
+ *
+ * A ValidationContext is an immutable value object that encapsulates
+ * the attributes associated with a validation operation. It provides a
+ * structured way to pass contextual information to validation routines.
+ *
+ * The attributes are stored as a plain object and are frozen to prevent
+ * mutation after the context is created. This ensures that the validation
+ * context remains consistent throughout the validation process.
+ */
+
 export class ValidationContext {
   private static readonly EMPTY = new ValidationContext({});
 

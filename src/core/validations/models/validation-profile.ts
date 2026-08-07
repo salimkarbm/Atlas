@@ -1,5 +1,9 @@
 import { assertNonEmptyString } from '../../internal/assert';
-
+/**
+ * Represents a validation profile that can be used to categorize and identify validation rules.
+ *
+ * A ValidationProfile is an immutable value object that encapsulates the name of a validation profile.
+ */
 export class ValidationProfile {
   private readonly _name: string;
 
