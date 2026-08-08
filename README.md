@@ -1,20 +1,3 @@
-Good. This gives us enough architectural context to draft the README accurately.
-
-I would **not** put the full Platform Model or Context Map into the README. The repository already correctly treats those as canonical architecture documents. The README should be the **entry point**: concise, practical for developers, and pointing deeper into `docs/`.
-
-There are also a couple of things I would explicitly **not claim yet**:
-
-- Docker support — no Dockerfile or Compose file appeared in the tree you provided.
-- Redis as an available runtime dependency — there is a configuration module, but it isn't in `.env.example` or `package.json` dependencies.
-- Authentication/authorization implementation — those are architectural contexts, but the current source tree does not establish that they are implemented.
-- Asset management implementation — same distinction.
-- Production deployment instructions — the operations docs exist, but you said their contents aren't populated yet.
-
-So the README should describe **Atlas as the platform being built**, while clearly separating the **current engineering foundation** from the future bounded contexts.
-
-# Proposed `README.md`
-
-````markdown
 # Atlas
 
 > A multi-tenant Digital Asset Management platform designed as a long-lived, modular, and extensible software platform.
@@ -111,6 +94,7 @@ The required Node.js version is defined by the repository's `package.json`:
 ```text
 Node.js >= 22.0.0
 ```
+
 ````
 
 The repository also contains an `.nvmrc` file for Node.js version management.
@@ -847,3 +831,4 @@ Atlas is licensed under the MIT License.
 ```
 
 ```
+````
