@@ -1,4 +1,4 @@
-import type { Environment } from '../Internal/schema';
+import type { Environment } from '../internal/schema';
 import type { ServerConfiguration } from '../types';
 
 export function createServerConfiguration(environment: Environment): ServerConfiguration {

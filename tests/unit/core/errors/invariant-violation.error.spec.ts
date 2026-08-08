@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { InvariantViolationError } from '../../../../src/Core/errors';
+import { InvariantViolationError } from '../../../../src/core/errors';
 
 describe('InvariantViolationError', () => {
   describe('construction', () => {

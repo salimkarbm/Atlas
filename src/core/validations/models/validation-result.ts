@@ -1,4 +1,4 @@
-import { InvariantViolationError } from '../../../Core/errors';
+import { InvariantViolationError } from '../../errors';
 
 import { ValidationIssue } from './validation-issue';
 

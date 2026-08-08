@@ -1,10 +1,19 @@
 ---
 title: Developer Foundation
 status: Accepted
-version: 2.0
+version: 2.1
 owner: Architecture
 last_updated: 2026-07-31
 ---
+
+---
+
+title: Developer Foundation
+status: Accepted
+version: 2.1
+owner: Architecture
+last_updated: 2026-08-07
+------------------------
 
 # Developer Foundation
 
@@ -212,6 +221,50 @@ This approach:
 
 ---
 
+# Validation Architecture
+
+Validation is a shared engineering capability of the Developer Foundation.
+
+Its responsibility is to provide the engineering model and reusable capabilities required to evaluate engineering work consistently throughout the Atlas development lifecycle.
+
+Validation establishes:
+
+- validation responsibilities;
+- validation principles;
+- quality gates;
+- validation workflows;
+- shared validation capabilities;
+- boundaries between shared validation infrastructure and business-specific validation rules.
+
+The Validation capability remains independent of business domains.
+
+The shared Validation Foundation provides reusable engineering primitives and behavioral contracts that support the capability, while business-specific validation rules remain owned by their respective bounded contexts.
+
+The Validation capability therefore distinguishes between:
+
+```text
+Developer Foundation
+        │
+        ▼
+Shared Validation Capability
+        │
+        ├── reusable validation primitives
+        ├── validation contracts
+        ├── validation workflows
+        └── quality gates
+                │
+                ▼
+        Bounded Contexts
+                │
+                └── business-specific validation
+```
+
+The Developer Foundation does not own business validation rules.
+
+Detailed Validation design and implementation guidance is defined by the Developer Foundation Design Specification.
+
+---
+
 # Architectural Principles
 
 The Developer Foundation follows these principles.
@@ -324,7 +377,3 @@ The Developer Foundation defines the architectural model for the shared engineer
 By separating capability ownership from implementation ownership, Atlas preserves a clean engineering architecture while allowing each capability to be implemented within the architectural layer best suited to its responsibility.
 
 This approach enables consistent engineering practices, sustainable platform evolution, and a reusable engineering platform that remains independent of business-domain concerns.
-
-```
-
-```

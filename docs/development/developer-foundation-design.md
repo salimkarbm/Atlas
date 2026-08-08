@@ -1,7 +1,7 @@
 ---
 title: Developer Foundation Design Specification
 status: Accepted
-version: 2.0
+version: 2.1
 owner: Architecture
 last_updated: 2026-07-29
 ---
@@ -898,9 +898,9 @@ The Test Data capability is successful when:
 
 ## Purpose
 
-The Validation capability defines how Atlas evaluates engineering changes throughout the software development lifecycle.
+The Validation capability defines how Atlas evaluates engineering work throughout the software development lifecycle.
 
-It establishes the engineering workflows, quality gates, and verification responsibilities that ensure every change satisfies the standards defined by the Engineering Constitution, Architecture Specification, and Design Specification before becoming part of the platform.
+It establishes the engineering workflows, quality gates, validation responsibilities, and shared validation capabilities required to ensure that engineering work satisfies the standards defined by the Engineering Constitution, Architecture Specification, and Developer Foundation Design Specification before becoming part of the platform.
 
 Validation is a continuous engineering capability rather than a single activity performed after implementation.
 
@@ -912,10 +912,11 @@ The Validation capability is designed to:
 
 - Establish consistent engineering quality gates.
 - Detect issues as early as practical.
-- Provide objective verification of engineering changes.
-- Encourage automation wherever possible.
+- Provide objective evaluation of engineering work.
+- Encourage automation wherever practical.
 - Reduce the likelihood of regressions.
 - Promote confidence in engineering decisions.
+- Provide reusable validation primitives and contracts.
 - Support continuous improvement of the engineering system.
 
 ---
@@ -968,7 +969,7 @@ Validation confirms implementation against approved architecture and design rath
 
 Engineering quality is owned collectively.
 
-Validation is supported by the Developer Foundation while remaining the responsibility of every contributor.
+The Developer Foundation provides shared validation capabilities while every contributor remains responsible for satisfying the established validation requirements.
 
 ---
 
@@ -986,6 +987,190 @@ Atlas validates engineering work through complementary validation categories.
 | Repository Validation    | Verify repository organization, dependency rules, and engineering conventions. |
 
 Each category evaluates a distinct engineering responsibility.
+
+---
+
+# Shared Validation Foundation
+
+The Developer Foundation provides reusable validation primitives and behavioral contracts that support the Validation capability.
+
+The shared Validation Foundation is implemented under:
+
+```text
+src/core/validation/
+├── models/
+│   ├── validation-result.ts
+│   ├── validation-issue.ts
+│   ├── validation-context.ts
+│   ├── validation-profile.ts
+│   └── index.ts
+│
+├── interfaces/
+│   ├── validator.ts
+│   └── index.ts
+│
+└── index.ts
+```
+
+The Validation Foundation is responsible for providing the reusable engineering building blocks required to represent and execute validation consistently.
+
+It contains no business-specific validation rules.
+
+---
+
+## Validation Models
+
+The `models/` directory contains immutable state-bearing concepts used by the Validation capability.
+
+### ValidationResult
+
+Represents the outcome of a validation operation.
+
+A validation result communicates whether validation succeeded and, when validation fails, provides the associated validation issues.
+
+### ValidationIssue
+
+Represents an individual validation failure.
+
+A validation issue contains:
+
+- a canonical issue code;
+- a human-readable message;
+- an optional path identifying the affected value;
+- optional metadata providing additional validation information.
+
+### ValidationContext
+
+Represents contextual information supplied during validation.
+
+The context provides a controlled mechanism for supplying information that may influence validation without introducing state into validator implementations.
+
+### ValidationProfile
+
+Represents the validation profile under which validation is performed.
+
+Profiles allow validation behavior to be associated with an explicit validation context without embedding profile-specific state into the validator contract.
+
+Models are responsible for enforcing their own invariants and preserving their own immutability.
+
+---
+
+## Validation Interfaces
+
+The `interfaces/` directory contains behavioral contracts that define extension points for the Validation capability.
+
+Initially, the capability defines:
+
+```text
+Validator<T>
+```
+
+`Validator<T>` defines the canonical contract for validating a value:
+
+```ts
+interface Validator<T> {
+  validate(value: T, context?: ValidationContext): ValidationResult;
+}
+```
+
+The contract is intentionally stateless and synchronous.
+
+A validator:
+
+- receives a value;
+- optionally receives validation context;
+- returns a `ValidationResult`.
+
+A validator does not throw for ordinary validation failures.
+
+Validation failures are represented through `ValidationResult` and `ValidationIssue`.
+
+Runtime exceptions remain appropriate for invariant violations and exceptional engineering failures.
+
+Additional behavioral contracts may be introduced in the future only when an approved engineering responsibility requires them.
+
+---
+
+## Validation Assertions
+
+The Validation Foundation may use shared internal assertions to enforce reusable invariants.
+
+Current shared assertions include:
+
+```text
+src/core/internal/assert/
+├── assert-plain-object.ts
+├── assert-non-empty-string.ts
+└── index.ts
+```
+
+These assertions provide reusable invariant enforcement without embedding duplicated validation logic inside individual models.
+
+Assertions are engineering primitives and must remain independent of business-domain rules.
+
+---
+
+## Public API
+
+The Validation capability exposes a single public API boundary:
+
+```text
+src/core/validation/index.ts
+```
+
+Consumers should import Validation capabilities through this boundary.
+
+For example:
+
+```ts
+import {
+  ValidationContext,
+  ValidationIssue,
+  ValidationProfile,
+  ValidationResult,
+  type Validator,
+} from '@/core/validation';
+```
+
+Consumers should not depend directly on internal model or interface paths.
+
+The internal organization of `models/` and `interfaces/` may evolve without requiring consumers to change their imports.
+
+---
+
+## Business Validation Boundary
+
+The shared Validation Foundation must remain independent of business domains.
+
+Business-specific validation belongs to the owning bounded context.
+
+For example:
+
+```text
+src/modules/
+├── users/
+│   └── ...
+├── assets/
+│   └── ...
+└── organizations/
+    └── ...
+```
+
+Business validators may implement the shared `Validator<T>` contract, but their business rules must not be placed inside `src/core/validation`.
+
+The distinction is:
+
+```text
+Core Validation
+    ↓
+Shared validation primitives and contracts
+
+Bounded Context
+    ↓
+Business-specific validation rules
+```
+
+This prevents the Developer Foundation from becoming a repository for domain-specific validation logic.
 
 ---
 
@@ -1013,20 +1198,20 @@ Engineering work progresses through successive validation activities.
 
 ```text
 Discovery
-        │
-        ▼
+  │
+  ▼
 Architecture Validation
-        │
-        ▼
+  │
+  ▼
 Design Validation
-        │
-        ▼
+  │
+  ▼
 Implementation Validation
-        │
-        ▼
+  │
+  ▼
 Engineering Review
-        │
-        ▼
+  │
+  ▼
 Merge
 ```
 
@@ -1047,6 +1232,8 @@ Representative automation responsibilities include:
 - Documentation verification.
 - Test execution.
 - Continuous Integration workflows.
+
+The shared Validation Foundation provides reusable primitives that may support these automated validation activities.
 
 Automation complements engineering review rather than replacing it.
 
@@ -1076,6 +1263,7 @@ The Developer Foundation owns:
 - Quality Gates.
 - Validation conventions.
 - Shared validation tooling.
+- Shared Validation Foundation primitives and contracts.
 - Engineering validation guidance.
 
 Engineering contributors are responsible for ensuring their work satisfies the established validation requirements before requesting review.
@@ -1088,10 +1276,12 @@ Engineering reviewers confirm that validation has been completed appropriately.
 
 The Validation capability shall:
 
-- Remain independent of business domains.
+- Remain independent of business domains and business rules.
 - Preserve architectural governance.
 - Encourage automation without replacing engineering judgement.
 - Support deterministic engineering workflows.
+- Provide reusable validation capabilities without unnecessary abstraction.
+- Maintain a stable public API boundary.
 - Scale as the engineering system evolves.
 - Maintain traceability to approved engineering artifacts.
 
@@ -1103,9 +1293,12 @@ The Validation capability is successful when:
 
 - Engineering quality is evaluated consistently.
 - Quality Gates prevent incomplete work from progressing.
+- Shared validation capabilities reduce duplicated validation logic.
 - Automation reduces repetitive validation effort.
 - Engineering reviews focus on architectural and design quality rather than avoidable issues.
 - Contributors understand validation expectations before implementation begins.
+- Business-specific validation remains within its owning bounded context.
+- The Validation Foundation can evolve without requiring consumers to depend on internal implementation structure.
 - Validation evolves without compromising engineering governance.
 
 # Repository Design

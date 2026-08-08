@@ -1,9 +1,9 @@
-import './Application/Configuration/Internal';
+import './application/configuration/internal';
 import 'reflect-metadata';
 
-import { loadEnvironment } from './Application/Configuration/Internal';
-import { logger } from './Infrastructure/Logging';
-import { bootstrap } from './Application/Kernel';
+import { loadEnvironment } from './application/configuration/internal';
+import { logger } from './infrastructure/logging';
+import { bootstrap } from './application/kernel';
 
 function main(): void {
   try {

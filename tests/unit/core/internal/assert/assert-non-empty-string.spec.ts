@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
 import { expectInvariantViolation } from '../../../../shared/helpers';
-import { assertNonEmptyString } from '../../../../../src/Core/internal';
+import { assertNonEmptyString } from '../../../../../src/core/internal';
 
 describe('assertNonEmptyString', () => {
   const invariant = 'Test.string';

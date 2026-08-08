@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
-import { InvariantViolationError } from '../../../../../src/Core/errors';
-import { ValidationIssue } from '../../../../../src/Core/validations';
+import { InvariantViolationError } from '../../../../../src/core/errors';
+import { ValidationIssue } from '../../../../../src/core/validations';
 import { expectInvariantViolation } from '../../../../shared/helpers';
 
 describe('ValidationIssue', () => {

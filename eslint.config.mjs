@@ -3,6 +3,7 @@ import globals from 'globals';
 import tseslint from 'typescript-eslint';
 import eslintConfigPrettier from 'eslint-config-prettier';
 
+
 export default tseslint.config(
   {
     ignores: [
@@ -30,7 +31,7 @@ export default tseslint.config(
       'commitlint.config.*',
       'tests/shared/setup/global-setup.ts',
       'tests/integration/environment.ts',
-      'src/Infrastructure/Persistence/typeorm/**/*.ts',
+      'src/infrastructure/persistence/typeorm/**/*.ts',
     ],
     extends: [tseslint.configs.disableTypeChecked],
     languageOptions: {
@@ -53,7 +54,7 @@ export default tseslint.config(
         ...globals.node,
       },
     },
-
+   
     rules: {
       'no-console': ['warn'],
       '@typescript-eslint/no-unused-vars': [
@@ -63,6 +64,7 @@ export default tseslint.config(
           varsIgnorePattern: '^_',
         },
       ],
+      
     },
   },
   eslintConfigPrettier,

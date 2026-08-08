@@ -4,7 +4,7 @@ import {
   ValidationContext,
   ValidationResult,
   Validator,
-} from '../../../../../src/Core/validations';
+} from '../../../../../src/core/validations';
 
 class TestValidator implements Validator<string> {
   public validate(value: string, context?: ValidationContext): ValidationResult {

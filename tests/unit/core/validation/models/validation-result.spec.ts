@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { ValidationIssue, ValidationResult } from '../../../../../src/Core/validations';
+import { ValidationIssue, ValidationResult } from '../../../../../src/core/validations';
 import { expectInvariantViolation } from '../../../../shared/helpers';
 
 describe('ValidationResult', () => {

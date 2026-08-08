@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { ValidationProfile } from '../../../../../src/Core/validations';
+import { ValidationProfile } from '../../../../../src/core/validations';
 import { expectInvariantViolation } from '../../../../shared/helpers';
 
 describe('ValidationProfile', () => {

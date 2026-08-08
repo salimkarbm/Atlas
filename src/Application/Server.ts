@@ -3,8 +3,8 @@ import cors from 'cors';
 import express from 'express';
 import helmet from 'helmet';
 
-import { requestLogger } from '../Infrastructure/Logging';
-import { healthRouter } from './Routes/health.route';
+import { requestLogger } from '../infrastructure/logging';
+import { healthRouter } from './routes/health.route';
 
 export function createServer() {
   const app = express();

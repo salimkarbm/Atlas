@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
 import { expectInvariantViolation } from '../../../../shared/helpers';
-import { assertPlainObject } from '../../../../../src/Core/internal';
+import { assertPlainObject } from '../../../../../src/core/internal';
 
 describe('assertPlainObject', () => {
   const invariant = 'Test.object';

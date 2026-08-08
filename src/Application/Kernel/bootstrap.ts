@@ -1,6 +1,6 @@
-import { createServer } from '../Server';
-import { config } from '../Configuration/config';
-import { logger } from '../../Infrastructure/Logging';
+import { createServer } from '../server';
+import { config } from '../configuration/config';
+import { logger } from '../../infrastructure/logging';
 
 import { ApplicationKernel } from './application-kernel';
 

@@ -6,7 +6,7 @@ import {
   ValidationProfile,
   ValidationResult,
   type Validator,
-} from '../../../../src/Core/validations';
+} from '../../../../src/core/validations';
 
 describe('Validation public API', () => {
   it('exports ValidationContext', () => {

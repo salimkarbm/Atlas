@@ -1,5 +1,5 @@
 import { expect } from 'vitest';
-import { InvariantViolationError } from '../../../src/Core/errors';
+import { InvariantViolationError } from '../../../src/core/errors';
 
 export function expectInvariantViolation(
   act: () => unknown,
