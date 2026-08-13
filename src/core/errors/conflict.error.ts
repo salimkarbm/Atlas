@@ -1,3 +1,8 @@
 import { DomainError } from './domain.error';
 
-export class ConflictError extends DomainError {}
+export class ConflictError extends DomainError {
+  constructor(message: string) {
+    super('ConflictError', message);
+    this.name = 'ConflictError';
+  }
+}
