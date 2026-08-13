@@ -3,7 +3,6 @@ import globals from 'globals';
 import tseslint from 'typescript-eslint';
 import eslintConfigPrettier from 'eslint-config-prettier';
 
-
 export default tseslint.config(
   {
     ignores: [
@@ -54,7 +53,7 @@ export default tseslint.config(
         ...globals.node,
       },
     },
-   
+
     rules: {
       'no-console': ['warn'],
       '@typescript-eslint/no-unused-vars': [
@@ -64,7 +63,6 @@ export default tseslint.config(
           varsIgnorePattern: '^_',
         },
       ],
-      
     },
   },
   eslintConfigPrettier,

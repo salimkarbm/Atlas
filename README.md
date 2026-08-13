@@ -95,8 +95,6 @@ The required Node.js version is defined by the repository's `package.json`:
 Node.js >= 22.0.0
 ```
 
-````
-
 The repository also contains an `.nvmrc` file for Node.js version management.
 
 ### Recommended tooling
@@ -831,4 +829,3 @@ Atlas is licensed under the MIT License.
 ```
 
 ```
-````

@@ -1,9 +1,11 @@
 ---
 title: Engineering Capabilities
 status: Accepted
-version: 1.0
+version: 1.1
 owner: Architecture
-last_updated: 2026-07-29
+last_updated: 2026-08-09
+---
+
 ---
 
 # Engineering Capabilities
@@ -30,7 +32,7 @@ The objective is to establish shared capabilities once and make them available t
 
 Engineering Capabilities are part of the Developer Foundation.
 
-```
+```text
 Engineering Foundation
         │
         ▼
@@ -62,6 +64,7 @@ Accordingly:
 - capability ownership is distinct from implementation ownership.
 
 This separation allows Atlas to preserve both architectural clarity and repository consistency.
+
 ---
 
 # Capability Model
@@ -101,7 +104,7 @@ Capabilities that improve engineering efficiency.
 
 ---
 
-## Engineering Quality Strategy
+## Engineering Quality
 
 Capabilities that promote long-term engineering excellence.
 
@@ -133,7 +136,28 @@ Validation includes architectural verification, documentation verification, test
 
 Provides reusable engineering components that eliminate duplication across bounded contexts.
 
-Utilities should remain independent of business domains.
+Shared Engineering Utilities remain independent of business domains and are introduced only when a demonstrated cross-context engineering need exists.
+
+The capability is a governed extension point rather than a requirement to maintain a generic collection of helper functions.
+
+A component qualifies as a Shared Engineering Utility when it:
+
+- addresses a recurring engineering problem;
+- is reusable across bounded contexts;
+- has a stable engineering responsibility;
+- is independent of business-domain concepts;
+- does not belong to an existing specialized capability;
+- provides meaningful value by reducing duplication or establishing a shared engineering behavior.
+
+The existence of a potential reusable helper does not by itself justify introducing a shared utility.
+
+Existing internal invariant assertions remain under:
+
+`src/core/internal/assert/`
+
+They are not required to be relocated into the general utilities boundary.
+
+The general utilities boundary may be used for future justified Shared Engineering Utilities.
 
 ---
 
@@ -161,36 +185,17 @@ Specific tools are selected during the Design phase.
 
 ---
 
-## Quality Assurance
+## Engineering Quality Strategy
 
-Provides the engineering capabilities required to maintain quality throughout the software lifecycle.
+Coordinates quality practices across the Atlas platform.
 
-Quality is achieved through architecture, engineering practices, validation, and continuous improvement.
+Quality is achieved through architecture, engineering practices, validation, testing, engineering reviews, and continuous improvement.
 
 ---
 
 # Capability Principles
 
 Engineering Capabilities follow these principles.
-
-# Repository Mapping
-
-Engineering Capabilities are implemented within the existing Atlas repository architecture.
-
-Each capability is implemented by the architectural layer responsible for the concern.
-
-Typical examples include:
-
-| Capability        | Typical Implementation                  |
-| ----------------- | --------------------------------------- |
-| Configuration     | Application layer                       |
-| Logging           | Infrastructure layer                    |
-| Testing           | Test infrastructure                     |
-| Validation        | Distributed across architectural layers |
-| Developer Tooling | Repository tooling                      |
-| Local Development | Repository infrastructure               |
-
-These examples illustrate implementation responsibility rather than prescribing repository structure.
 
 ## Shared by Default
 
@@ -219,6 +224,29 @@ New capabilities may be introduced without disrupting existing bounded contexts.
 ## Consistent
 
 Capabilities establish common engineering practices across the platform.
+
+---
+
+# Repository Mapping
+
+Engineering Capabilities are implemented within the existing Atlas repository architecture.
+
+Each capability is implemented by the architectural layer responsible for the concern.
+
+Typical examples include:
+
+| Capability        | Typical Implementation                  |
+| ----------------- | --------------------------------------- |
+| Configuration     | Application layer                       |
+| Logging           | Infrastructure layer                    |
+| Testing           | Test infrastructure                     |
+| Validation        | Distributed across architectural layers |
+| Developer Tooling | Repository tooling                      |
+| Local Development | Repository infrastructure               |
+
+These examples illustrate implementation responsibility rather than prescribing repository structure.
+
+The existence of a capability does not require a dedicated source-code directory.
 
 ---
 
@@ -258,6 +286,7 @@ Capability evolution follows the Architecture Lifecycle and is governed by the E
 This document complements:
 
 - Developer Foundation
+- Developer Foundation Design
 - Testing Architecture
 - Testing Philosophy
 - Engineering Quality Strategy
@@ -275,6 +304,4 @@ They provide reusable engineering capabilities that improve consistency, reduce 
 
 Engineering Capabilities define what engineering services Atlas provides, while the Design and Implementation phases determine how and where those services are realized within the repository architecture.
 
-```
-
-```
+Shared Engineering Utilities are intentionally governed as a reusable capability rather than a generic collection of helper functions. New utilities are introduced only when demonstrated cross-context engineering needs justify their existence.

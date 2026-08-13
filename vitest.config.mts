@@ -27,6 +27,8 @@ export default defineConfig({
         '**/test/**',
         '**/migrations/**',
         'src/index.ts',
+        '**/*.test.ts',
+        '**/*.spec.ts',
       ],
     },
   },
