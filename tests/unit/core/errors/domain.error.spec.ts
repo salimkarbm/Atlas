@@ -1,11 +1,11 @@
 import { describe, expect, it } from 'vitest';
 
-import { DomainError } from '../../../src/core/errors/domain.error';
-import { AuthorizationError } from '../../../src/core/errors';
-import { ConflictError } from '../../../src/core/errors';
-import { ForbiddenError } from '../../../src/core/errors';
-import { NotFoundError } from '../../../src/core/errors';
-import { ValidationError } from '../../../src/core/errors';
+import { DomainError } from '../../../../src/core/errors/domain.error';
+import { AuthorizationError } from '../../../../src/core/errors';
+import { ConflictError } from '../../../../src/core/errors';
+import { ForbiddenError } from '../../../../src/core/errors';
+import { NotFoundError } from '../../../../src/core/errors';
+import { ValidationError } from '../../../../src/core/errors';
 
 class TestDomainError extends DomainError {
   constructor(code: string, message: string) {

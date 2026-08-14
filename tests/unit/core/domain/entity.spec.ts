@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
-import { Entity } from '../../../src/core/domain/entity';
-import { UniqueEntityId } from '../../../src/core/domain/unique-entity-id';
+import { Entity } from '../../../../src/core/domain/entity';
+import { UniqueEntityId } from '../../../../src/core/domain/unique-entity-id';
 
 class TestEntity extends Entity<{ name: string }> {
   public constructor(name: string, id?: UniqueEntityId) {

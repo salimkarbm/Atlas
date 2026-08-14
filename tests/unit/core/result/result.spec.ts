@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { Result } from '../../../src/core/result/result';
+import { Result } from '../../../../src/core/result/result';
 
 describe('Result', () => {
   describe('ok', () => {

@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { z } from 'zod';
 
-import { ConfigurationError } from '../../../src/core/errors/configuration.error';
-import { DomainError } from '../../../src/core/errors/domain.error';
+import { ConfigurationError } from '../../../../src/core/errors/configuration.error';
+import { DomainError } from '../../../../src/core/errors/domain.error';
 
 describe('ConfigurationError', () => {
   describe('construction', () => {

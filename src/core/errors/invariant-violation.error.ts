@@ -38,17 +38,17 @@ export class InvariantViolationError extends DomainError {
     return this._invariant;
   }
 
-  private static validateInvariant(invariant: string): void {
-    if (invariant.trim().length === 0) {
-      throw new TypeError('TypeError: Invariant identifier must not be empty or whitespace.');
-    }
-  }
+  // private static validateInvariant(invariant: string): void {
+  //   if (invariant.trim().length === 0) {
+  //     throw new TypeError('TypeError: Invariant identifier must not be empty or whitespace.');
+  //   }
+  // }
 
-  private static validateMessage(message: string): void {
-    if (message.trim().length === 0) {
-      throw new TypeError(
-        'TypeError: Invariant violation message must not be empty or whitespace.',
-      );
-    }
-  }
+  // private static validateMessage(message: string): void {
+  //   if (message.trim().length === 0) {
+  //     throw new TypeError(
+  //       'TypeError: Invariant violation message must not be empty or whitespace.',
+  //     );
+  //   }
+  // }
 }

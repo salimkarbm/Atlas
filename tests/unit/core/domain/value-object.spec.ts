@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { ValueObject } from '../../../src/core/domain/value-object';
+import { ValueObject } from '../../../../src/core/domain/value-object';
 
 class TestValueObject extends ValueObject<{
   name: string;

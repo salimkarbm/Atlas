@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { UniqueEntityId } from '../../../src/core/domain/unique-entity-id';
+import { UniqueEntityId } from '../../../../src/core/domain/unique-entity-id';
 
 describe('UniqueEntityId', () => {
   describe('construction', () => {
