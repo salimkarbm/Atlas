@@ -17,6 +17,7 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "test": "vitest",
+    "test:cov": "npm run test -- --coverage",
     "prepare": "husky",
     "depcruise": "depcruise src --config dependency-cruiser.cjs",
     "knip": "knip",

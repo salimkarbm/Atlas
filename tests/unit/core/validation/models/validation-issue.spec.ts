@@ -73,22 +73,22 @@ describe('ValidationIssue', () => {
 
     describe('message', () => {
       it('throws when message is empty', () => {
-        expectInvariantViolation(
-          () => ValidationIssue.of('', 'User is invalid.'),
-          'ValidationIssue.code',
-          'Validation issue code must not be empty or whitespace.',
-        );
-        // const act = () => ValidationIssue.of('USER.INVALID', '');
+        // expectInvariantViolation(
+        //   () => ValidationIssue.of('', 'User is invalid.'),
+        //   'ValidationIssue.code',
+        //   'Validation issue code must not be empty or whitespace.',
+        // );
+        const act = () => ValidationIssue.of('USER.INVALID', '');
 
-        // expect(act).toThrow(InvariantViolationError);
+        expect(act).toThrow(InvariantViolationError);
 
-        // try {
-        //   act();
-        // } catch (error) {
-        //   const invariantError = error as InvariantViolationError;
+        try {
+          act();
+        } catch (error) {
+          const invariantError = error as InvariantViolationError;
 
-        //   expect(invariantError.invariant).toBe('ValidationIssue.message');
-        // }
+          expect(invariantError.invariant).toBe('ValidationIssue.message');
+        }
       });
 
       it('throws when message contains only whitespace', () => {
