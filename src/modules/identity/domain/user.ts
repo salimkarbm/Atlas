@@ -1,9 +1,10 @@
 import { InvariantViolationError, ValidationError } from '../../../core';
+import { UserId } from './user-id';
 
 export type UserStatus = 'active' | 'disabled';
 
 export interface UserProps {
-  readonly id: string;
+  readonly id: UserId;
   readonly email: string;
   readonly status: UserStatus;
   readonly createdAt: Date;
@@ -14,10 +15,6 @@ export class User {
   private constructor(private readonly props: UserProps) {}
 
   public static create(props: UserProps): User {
-    if (!props.id.trim()) {
-      throw new ValidationError('User ID is required');
-    }
-
     if (!props.email.trim()) {
       throw new ValidationError('User email is required');
     }
@@ -35,7 +32,7 @@ export class User {
     });
   }
 
-  public get id(): string {
+  public get id(): UserId {
     return this.props.id;
   }
 

@@ -1,12 +1,13 @@
 import { describe, expect, it } from 'vitest';
 import { User } from '../../../../../src/modules/identity/domain/user';
+import { UserId } from '../../../../../src/modules/identity/domain/user-id';
 
 describe('User', () => {
   const createdAt = new Date('2026-01-01T00:00:00.000Z');
   const updatedAt = new Date('2026-01-01T00:00:00.000Z');
 
   const validProps = {
-    id: 'user-123',
+    id: UserId.create('user-123'),
     email: 'user@example.com',
     status: 'active' as const,
     createdAt,
@@ -17,7 +18,7 @@ describe('User', () => {
     it('creates an active user with valid properties', () => {
       const user = User.create(validProps);
 
-      expect(user.id).toBe('user-123');
+      expect(user.id.toString()).toBe('user-123');
       expect(user.email).toBe('user@example.com');
       expect(user.status).toBe('active');
       expect(user.createdAt).toBe(createdAt);
@@ -37,7 +38,7 @@ describe('User', () => {
       expect(() =>
         User.create({
           ...validProps,
-          id: '   ',
+          id: UserId.create('   '),
         }),
       ).toThrow('User ID is required');
     });
