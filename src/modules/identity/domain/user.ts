@@ -1,11 +1,12 @@
-import { InvariantViolationError, ValidationError } from '../../../core';
+import { InvariantViolationError } from '../../../core';
+import { EmailAddress } from './email-address';
 import { UserId } from './user-id';
 
 export type UserStatus = 'active' | 'disabled';
 
 export interface UserProps {
   readonly id: UserId;
-  readonly email: string;
+  readonly email: EmailAddress;
   readonly status: UserStatus;
   readonly createdAt: Date;
   readonly updatedAt: Date;
@@ -15,10 +16,6 @@ export class User {
   private constructor(private readonly props: UserProps) {}
 
   public static create(props: UserProps): User {
-    if (!props.email.trim()) {
-      throw new ValidationError('User email is required');
-    }
-
     if (props.createdAt > props.updatedAt) {
       throw new InvariantViolationError(
         'USER.INVALID',
@@ -28,7 +25,7 @@ export class User {
 
     return new User({
       ...props,
-      email: props.email.trim().toLowerCase(),
+      email: EmailAddress.create(props.email.toString()), // normalize email address
     });
   }
 
@@ -36,7 +33,7 @@ export class User {
     return this.props.id;
   }
 
-  public get email(): string {
+  public get email(): EmailAddress {
     return this.props.email;
   }
 
