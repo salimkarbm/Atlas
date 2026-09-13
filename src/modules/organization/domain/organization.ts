@@ -1,9 +1,10 @@
 import { InvariantViolationError, ValidationError } from '../../../core';
+import { OrganizationId } from './organization-id';
 
 export type OrganizationStatus = 'active' | 'suspended';
 
 export interface OrganizationProps {
-  readonly id: string;
+  readonly id: OrganizationId;
   readonly name: string;
   readonly status: OrganizationStatus;
   readonly createdAt: Date;
@@ -14,10 +15,6 @@ export class Organization {
   private constructor(private readonly props: OrganizationProps) {}
 
   public static create(props: OrganizationProps): Organization {
-    if (!props.id.trim()) {
-      throw new ValidationError('Organization ID is required');
-    }
-
     if (!props.name.trim()) {
       throw new ValidationError('Organization name is required');
     }
@@ -35,7 +32,7 @@ export class Organization {
     });
   }
 
-  public get id(): string {
+  public get id(): OrganizationId {
     return this.props.id;
   }
 

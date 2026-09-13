@@ -1,12 +1,13 @@
 import { describe, expect, it } from 'vitest';
 import { Organization } from '../../../../../src/modules/organization/domain/organization';
+import { OrganizationId } from '../../../../../src/modules/organization/domain/organization-id';
 
 describe('Organization', () => {
   const createdAt = new Date('2026-01-01T00:00:00.000Z');
   const updatedAt = new Date('2026-01-01T00:00:00.000Z');
 
   const validProps = {
-    id: 'organization-123',
+    id: OrganizationId.create('organization-123'),
     name: 'Atlas Organization',
     status: 'active' as const,
     createdAt,
@@ -17,7 +18,7 @@ describe('Organization', () => {
     it('creates an active organization with valid properties', () => {
       const organization = Organization.create(validProps);
 
-      expect(organization.id).toBe('organization-123');
+      expect(organization.id.toString()).toBe('organization-123');
       expect(organization.name).toBe('Atlas Organization');
       expect(organization.status).toBe('active');
       expect(organization.createdAt).toBe(createdAt);
@@ -37,7 +38,7 @@ describe('Organization', () => {
       expect(() =>
         Organization.create({
           ...validProps,
-          id: '   ',
+          id: OrganizationId.create(' '),
         }),
       ).toThrow('Organization ID is required');
     });
